@@ -81,7 +81,8 @@ def curlJsonDict(output, name, order, url):
 	# lace up the playlist name (AVideo returns 'all' for playlists)
 	values["categories"][0]["name"] = name
 	values["categories"][0]["order"] = order
-	let playlistName = name.lower().replace(" ", "")
+	
+	playlistName = name.lower().replace(" ", "")
 	values["categories"][0]["playlistName"] = playlistName
 	values["playlists"][0]["name"] = playlistName
 	mergeOutput(values, output, "movies")	#hardcode schema for now
