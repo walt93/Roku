@@ -78,8 +78,12 @@ def curlJsonDict(output, name, order, url):
 
 	#print(f"response = {values}")
 
+	# lace up the playlist name (AVideo returns 'all' for playlists)
 	values["categories"][0]["name"] = name
 	values["categories"][0]["order"] = order
+	let playlistName = name.lower().replace(" ", "")
+	values["categories"][0]["playlistName"] = playlistName
+	values["playlists"][0]["name"] = playlistName
 	mergeOutput(values, output, "movies")	#hardcode schema for now
 	count = len(values["movies"])
 	if count == 0:
