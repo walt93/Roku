@@ -123,3 +123,7 @@ def buildConspyreTV():
 #	curlJsonDict(output, "West, John Anthony",				"most_popular",  "https://conspyre.tv/roku.json?catName=john-anthony-west")
 
 	writeOutput(output, "/var/www/html/AVideo/rokuv2/conspyre-tv.json")
+
+# Do it. Build the channel.
+buildConspyreTV()
+
