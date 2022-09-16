@@ -11,7 +11,7 @@ def buildConspyreTV():
 #	curlJsonDict(output, "Featured",						"manual", "https://conspyre.tv/roku.json?program_id=58493")
 
 	#Alphabetical podcasters
-	curlJsonDict(output, "M3thods",							"most_popular",  "https://conspyre.tv/roku.json?catName=m3thods")
+	curlJsonDict(output, "M3thods",							"most_popular",  "https://conspyre.tv/roku.json?program_id=59991")
 	#curlJsonDict(output, "Quite Frankly",					"most_popular", "https://conspyre.tv/roku.json?catName=quite-frankly")
 	#curlJsonDict(output, "RedPill78",						"most_popular", "https://conspyre.tv/roku.json?catName=redpill78")
 	#curlJsonDict(output, "Tru Reporting",					"most_popular", "https://conspyre.tv/roku.json?catName=tru-reporting")
