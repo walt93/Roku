@@ -9,9 +9,9 @@ def buildBurrow():
 
 	
 	
-	loadProgramId(output, "Featured", 60320)	#featured - head 60320
-	appendProgramId(output, "Featured", 58493)
-	appendProgramId(output, "Featured", 61726)	#featured - tail 61726
+	#loadProgramId(output, "Featured", 60320)	#featured - head 60320
+	loadProgramId(output, "Featured", 58493)
+	#appendProgramId(output, "Featured", 61726)	#featured - tail 61726
 	loadProgramId(output, "Featured: 9/11", 59662)
 
 	#DisclosureHub curated rows
