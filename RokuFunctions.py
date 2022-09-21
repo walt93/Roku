@@ -78,14 +78,16 @@ def loadCategory(output, name, category):
 	url = "https://conspyre.tv/roku.json?catName=" + category
 	curlJsonDict(output, name, "manual", url)
 
+def appendProgramId(output, name, id):
+	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
+	appendJsonDict(output, name, "manual", url)
+
 def curlJsonDict(output, name, order, url):
 	#Set a user agent, else 403
 	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
 	response = urlopen(r).read()
 	values = json.loads(response)
-
-	#print(f"response = {values}")
 
 	# lace up the playlist name (AVideo returns 'all' for playlists)
 	values["categories"][0]["name"] = name
@@ -107,6 +109,28 @@ def curlJsonDict(output, name, order, url):
 	else:
 		print(f"Creating playlist \"{name}\" ({url}). Contains {str(count)} movies.")
 	return values
+
+def appendJsonDict(output, name, order, url):
+	#Set a user agent, else 403
+	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+
+	response = urlopen(r).read()
+	values = json.loads(response)
+
+	mergeOutput(values, output, "movies")	#hardcode schema for now
+	count = len(values["movies"])
+	if count == 0:
+		print("***********************************************************************************")
+		print(f"*** WARNING {name} contains {count} movies. {url}")
+		print("***********************************************************************************")
+	elif count > maxCount:
+		print("***********************************************************************************")
+		print(f"*** WARNING {name} contains {count} movies. {maxCount} max. {url}")
+		print("***********************************************************************************")
+	else:
+		print(f"Creating playlist \"{name}\" ({url}). Contains {str(count)} movies.")
+	return values
+
 
 # 3. Client calls writeOutput to emit the merged Roku JSON file
 def writeOutput(output, filename):

@@ -6,7 +6,12 @@ def buildBurrow():
 	#prepareAllCategory()
 
 	#Featured content
-	loadProgramId(output, "Featured", 58493)
+
+	
+	
+	loadProgramId(output, "Featured", 60320)	#featured - head 60320
+	appendProgramId(output, "Featured", 58493)
+	appendProgramId(output, "Featured", 61726)	#featured - tail 61726
 	loadProgramId(output, "Featured: 9/11", 59662)
 
 	#DisclosureHub curated rows
@@ -25,7 +30,7 @@ def buildBurrow():
 	loadProgramId(output, "Free Energy", 59987)
 	loadProgramId(output, "EMF/EMR/RF/5G Radiation", 59988)
 	loadProgramId(output, "Extraterrestrial Videos", 59989)
-	loadProgramId(output, "Vaccines Exposed", 59990)
+	loadProgramId(output, "Vaccines Exposed", 61701)
 
 	#Alphabetical podcasters
 	loadProgramId(output, "IPOT1776", 60413)
@@ -45,7 +50,6 @@ def buildBurrow():
 	loadProgramId(output, "Crop Circles", 60327)
 	loadProgramId(output, "Cult of the Medics", 59688)
 	loadProgramId(output, "Dark, The", 60328)
-	loadProgramId(output, "Detox Project, The", 60329)
 	loadProgramId(output, "Disclosure Library", 61762)
 	loadProgramId(output, "Disney", 59689)
 	loadProgramId(output, "EMF Health Summit", 60330)
@@ -55,7 +59,7 @@ def buildBurrow():
 	loadProgramId(output, "Finders, The", 59694)
 	loadProgramId(output, "Freemasons", 59695)
 	loadProgramId(output, "Gates, Bill", 59696)
-	#loadCategory(output, "General", "conspyre-tv")		# ERASE general? fan out these vids? probably. Check...
+	loadCategory( output, "General", "conspyre-tv")		# ERASE general? fan out these vids? probably. Check...
 	loadProgramId(output, "Geoengineering", 59697)
 	loadProgramId(output, "Giants", 59698)
 	loadProgramId(output, "Great Reset", 59699)
