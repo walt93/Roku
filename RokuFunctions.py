@@ -47,6 +47,7 @@ def createOutput(providerName):
 	output["shortFormVideos"] = []
 	output["series"] = []
 	output["tvSpecials"] = []
+	output["ids"] = []
 	return output
 
 # 1a. [Optional] call prepareAllCategory to prepare a category for "ALL" (only use for small channels <150 programs)
@@ -69,6 +70,14 @@ def prepareAllCategory():
 # name = How your category appears in Roku Direct Publisher
 # order = "chronological | most_popular | most_recent"
 # url = comes from AVideo site / category
+def loadProgramId(output, name, id):
+	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
+	curlJsonDict(output, name, "manual", url)
+
+def loadCategory(output, name, category):
+	url = "https://conspyre.tv/roku.json?catName=" + category
+	curlJsonDict(output, name, "manual", url)
+
 def curlJsonDict(output, name, order, url):
 	#Set a user agent, else 403
 	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -101,6 +110,7 @@ def curlJsonDict(output, name, order, url):
 
 # 3. Client calls writeOutput to emit the merged Roku JSON file
 def writeOutput(output, filename):
+	output["ids"] = None				# don't publish this temporary variable
 	shortFormCount = len(output["shortFormVideos"])
 	seriesCount = len(output["series"])
 	tvSpecialsCount = len(output["tvSpecials"])
@@ -151,9 +161,16 @@ def writeOutput(output, filename):
 # Private methods
 
 def mergeOutput(dict, output, schema):
-	output[schema] += dict["movies"]
-	output["playlists"] += dict["playlists"]
-	output["categories"] += dict["categories"]
+	for m in dict["movies"]:						#iterate incoming movies
+		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
+			if len(m["shortDescription"]) == 0:		#fix empty description
+				m["shortDescription"] = output["providerName"] + ": " + dict["categories"][0]["name"]
+				m["longDescription"] = m["shortDescription"]	
+			output["ids"].append(m["id"])			#save id
+			output[schema].append(m)				#append to movies list
+
+	output["playlists"] += dict["playlists"]		#append playlist
+	output["categories"] += dict["categories"]		#append category
 
 	#Append every movie to the "all" playlist if it exists
 	if output["playlists"][0]["name"] == "all":
