@@ -80,7 +80,7 @@ def loadCategory(output, name, category):
 
 def appendProgramId(output, name, id):
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	appendJsonDict(output, name, "manual", url)
+	curlJsonDict(output, name, "manual", url)
 
 def curlJsonDict(output, name, order, url):
 	#Set a user agent, else 403
@@ -109,28 +109,6 @@ def curlJsonDict(output, name, order, url):
 	else:
 		print(f"Creating playlist \"{name}\" ({url}). Contains {str(count)} movies.")
 	return values
-
-def appendJsonDict(output, name, order, url):
-	#Set a user agent, else 403
-	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-
-	response = urlopen(r).read()
-	values = json.loads(response)
-
-	mergeOutput(values, output, "movies")	#hardcode schema for now
-	count = len(values["movies"])
-	if count == 0:
-		print("***********************************************************************************")
-		print(f"*** WARNING {name} contains {count} movies. {url}")
-		print("***********************************************************************************")
-	elif count > maxCount:
-		print("***********************************************************************************")
-		print(f"*** WARNING {name} contains {count} movies. {maxCount} max. {url}")
-		print("***********************************************************************************")
-	else:
-		print(f"Creating playlist \"{name}\" ({url}). Contains {str(count)} movies.")
-	return values
-
 
 # 3. Client calls writeOutput to emit the merged Roku JSON file
 def writeOutput(output, filename):
