@@ -6,13 +6,10 @@ def buildBurrow():
 	#prepareAllCategory()
 
 	#Featured content
-
-	
-	
 	#loadProgramId(output, "Featured", 60320)	#featured - head 60320
 	loadProgramId(output, "Featured", 58493)
 	#appendProgramId(output, "Featured", 61726)	#featured - tail 61726
-	loadProgramId(output, "Featured: 9/11", 59662)
+	loadProgramId(output, "Just Added", 58474)
 
 	#DisclosureHub curated rows
 	loadProgramId(output, "DisclosureHub Films", 59975)
