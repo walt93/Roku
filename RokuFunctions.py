@@ -151,7 +151,7 @@ def writeOutput(output, filename):
 	print("Serializing.")
 	json_object = json.dumps(output, indent=4)
 
-	print("Writing output.")
+	print(f"Writing output to: {output}")
 	with open(filename, "w") as outfile:
 		outfile.write(json_object)
 
