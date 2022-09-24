@@ -153,7 +153,7 @@ def writeOutput(output, filename):
 # Private methods
 
 def mergeOutput(dict, output, schema, append):
-	print(f"mergeOutput {dict} {schema} {append}")
+	print(f"mergeOutput {schema} APPEND={append}")
 	for m in dict["movies"]:						#iterate incoming movies
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
 			if len(m["shortDescription"]) == 0:		#fix empty description
