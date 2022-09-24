@@ -55,22 +55,22 @@ def createOutput(providerName):
 # order = "chronological | most_popular | most_recent"
 # url = comes from AVideo site / category
 def loadProgramId(output, name, id):
-	print(f"loadProgramId {output} {name} {id}")
+	print(f"loadProgramId {name} {id}")
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
 	curlJsonDict(output, name, "manual", url, True)
 
 def loadCategory(output, name, category):
-	print(f"loadCategory {output} {name} {category}")
+	print(f"loadCategory {name} {category}")
 	url = "https://conspyre.tv/roku.json?catName=" + category
 	curlJsonDict(output, name, "manual", url, True)
 
 def appendProgramId(output, name, id):
-	print(f"appendProgramId {output} {name} {id}")
+	print(f"appendProgramId {name} {id}")
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
 	curlJsonDict(output, name, "manual", url, False)
 
 def curlJsonDict(output, name, order, url, append):
-	print(f"curlJsonDict {output} {name} {order} {url} {append}")
+	print(f"curlJsonDict {name} {order} {url} {append}")
 	#Set a user agent, else 403
 	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
@@ -100,7 +100,7 @@ def curlJsonDict(output, name, order, url, append):
 
 # 3. Client calls writeOutput to emit the merged Roku JSON file
 def writeOutput(output, filename):
-	print(f"writeOutput {output} {filename}")
+	print(f"writeOutput {filename}")
 	output["ids"] = None				# don't publish this temporary variable
 	shortFormCount = len(output["shortFormVideos"])
 	seriesCount = len(output["series"])
@@ -153,7 +153,7 @@ def writeOutput(output, filename):
 # Private methods
 
 def mergeOutput(dict, output, schema, append):
-	print(f"mergeOutput {dict} {output} {schema} {append}")
+	print(f"mergeOutput {dict} {schema} {append}")
 	for m in dict["movies"]:						#iterate incoming movies
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
 			if len(m["shortDescription"]) == 0:		#fix empty description
