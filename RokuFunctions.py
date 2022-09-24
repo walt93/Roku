@@ -57,17 +57,17 @@ def createOutput(providerName):
 def loadProgramId(output, name, id):
 	print(f"loadProgramId {name} {id}")
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	curlJsonDict(output, name, "manual", url, True)
+	curlJsonDict(output, name, "manual", url, False)
 
 def loadCategory(output, name, category):
 	print(f"loadCategory {name} {category}")
 	url = "https://conspyre.tv/roku.json?catName=" + category
-	curlJsonDict(output, name, "manual", url, True)
+	curlJsonDict(output, name, "manual", url, False)
 
 def appendProgramId(output, name, id):
 	print(f"appendProgramId {name} {id}")
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	curlJsonDict(output, name, "manual", url, False)
+	curlJsonDict(output, name, "manual", url, True)
 
 def curlJsonDict(output, name, order, url, append):
 	print(f"curlJsonDict {name} {order} {url} {append}")
