@@ -167,7 +167,7 @@ def mergeOutput(dict, output, schema, append):
 		print(output["playlists"])
 		print("dict playlists")
 		print(dict["playlists"])
-		output['itemIds'] += dict['itemIds']
+		output[0]['itemIds'] += dict[0]['itemIds']
 		print("output playlists")
 		print(output["playlists"])
 	else:
