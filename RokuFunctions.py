@@ -156,7 +156,12 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 
-	#if append == True:
-	output["playlists"] += dict["playlists"]		#append playlist
-	output["categories"] += dict["categories"]		#append category
+	if append == True:
+		print("output playlists")
+		print(output["playlists"])
+		print("dict playlists")
+		print(dict["playlists"])
+	else:
+		output["playlists"] += dict["playlists"]		#append playlist
+		output["categories"] += dict["categories"]		#append category
 
