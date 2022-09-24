@@ -56,15 +56,15 @@ def createOutput(providerName):
 # url = comes from AVideo site / category
 def loadProgramId(output, name, id):
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	curlJsonDict(output, name, "manual", url, true)
+	curlJsonDict(output, name, "manual", url, True)
 
 def loadCategory(output, name, category):
 	url = "https://conspyre.tv/roku.json?catName=" + category
-	curlJsonDict(output, name, "manual", url, true)
+	curlJsonDict(output, name, "manual", url, True)
 
 def appendProgramId(output, name, id):
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	curlJsonDict(output, name, "manual", url, false)
+	curlJsonDict(output, name, "manual", url, False)
 
 def curlJsonDict(output, name, order, url, append):
 	#Set a user agent, else 403
@@ -143,6 +143,7 @@ def writeOutput(output, filename):
 
 	print("Fin.")
 
+
 ########################################################################################################################
 # Private methods
 
@@ -155,7 +156,7 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 
-	if append == true:
+	if append == True:
 		output["playlists"] += dict["playlists"]		#append playlist
 		output["categories"] += dict["categories"]		#append category
 
