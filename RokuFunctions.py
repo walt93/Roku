@@ -50,39 +50,23 @@ def createOutput(providerName):
 	output["ids"] = []
 	return output
 
-# 1a. [Optional] call prepareAllCategory to prepare a category for "ALL" (only use for small channels <150 programs)
-def prepareAllCategory():
-	print("Creating playlist \"All\"")
-	# create a playlist "All" with everything, sorted by most_recent
-	tcat = {}
-	tcat["name"] = "All"
-	tcat["playlistName"] = "all"
-	tcat["order"] = "most_recent"
-	output["categories"].append(tcat)
-
-	tpl = {}
-	tpl["name"] = "all"
-	tpl["itemIds"] = []
-	output["playlists"].append(tpl)
-
-
 # 2. Client calls curlJsonDict to add a category from a single-category JSON
 # name = How your category appears in Roku Direct Publisher
 # order = "chronological | most_popular | most_recent"
 # url = comes from AVideo site / category
 def loadProgramId(output, name, id):
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	curlJsonDict(output, name, "manual", url)
+	curlJsonDict(output, name, "manual", url, true)
 
 def loadCategory(output, name, category):
 	url = "https://conspyre.tv/roku.json?catName=" + category
-	curlJsonDict(output, name, "manual", url)
+	curlJsonDict(output, name, "manual", url, true)
 
 def appendProgramId(output, name, id):
 	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	curlJsonDict(output, name, "manual", url)
+	curlJsonDict(output, name, "manual", url, false)
 
-def curlJsonDict(output, name, order, url):
+def curlJsonDict(output, name, order, url, append):
 	#Set a user agent, else 403
 	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
@@ -96,7 +80,7 @@ def curlJsonDict(output, name, order, url):
 	playlistName = name.lower().replace(" ", "")
 	values["categories"][0]["playlistName"] = playlistName
 	values["playlists"][0]["name"] = playlistName
-	mergeOutput(values, output, "movies")	#hardcode schema for now
+	mergeOutput(values, output, "movies", append)	#hardcode schema for now
 	count = len(values["movies"])
 	if count == 0:
 		print("***********************************************************************************")
@@ -162,7 +146,7 @@ def writeOutput(output, filename):
 ########################################################################################################################
 # Private methods
 
-def mergeOutput(dict, output, schema):
+def mergeOutput(dict, output, schema, append):
 	for m in dict["movies"]:						#iterate incoming movies
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
 			if len(m["shortDescription"]) == 0:		#fix empty description
@@ -171,11 +155,7 @@ def mergeOutput(dict, output, schema):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 
-	output["playlists"] += dict["playlists"]		#append playlist
-	output["categories"] += dict["categories"]		#append category
+	if append == true:
+		output["playlists"] += dict["playlists"]		#append playlist
+		output["categories"] += dict["categories"]		#append category
 
-	#Append every movie to the "all" playlist if it exists
-	if output["playlists"][0]["name"] == "all":
-		outputArray = output["playlists"][0]["itemIds"]
-		itemIds = dict["playlists"][0]["itemIds"]
-		outputArray += itemIds
