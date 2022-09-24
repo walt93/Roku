@@ -30,7 +30,7 @@ def buildBurrow():
 	#Alphabetical podcasters
 	loadProgramId(output, "IPOT1776", 60413)
 	loadProgramId(output, "M3thods", 59991)
-	loadProgramId(output, "BradCGZ", 61752)	# Coming Soon
+	loadProgramId(output, "BradCGZ", 62937)
 
 	#Alphabetical categories
 	loadProgramId(output, "5G", 59660)
