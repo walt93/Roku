@@ -44,7 +44,7 @@ def buildOSTO():
 	loadCategory(output, "DISCLOSURE SONGS", "disclosure-songs")
 	loadCategory(output, "THE SCREAMING MEMER", "the-screaming-memer")
 
-	writeOutput(output, "osto.json")
+	writeOutput(output, "/var/www/html/AVideo/osto.json")
 
 # Do it. Build the channel.
 buildOSTO()
