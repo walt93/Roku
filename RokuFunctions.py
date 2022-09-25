@@ -66,6 +66,7 @@ def appendProgramId(output, name, id):
 
 def loadCategory(output, name, category):
 	url = output["baseUrlCategory"] + category
+	print(f"url = {url}")
 	curlJsonDict(output, name, "manual", url, False)
 
 def curlJsonDict(output, name, order, url, append):
@@ -101,7 +102,7 @@ def writeOutput(output, filename):
 	output["ids"] = None				# don't publish our temporary variables
 	output["baseUrlProgram"] = None
 	output["baseUrlCategory"] = None
-	
+
 	shortFormCount = len(output["shortFormVideos"])
 	seriesCount = len(output["series"])
 	tvSpecialsCount = len(output["tvSpecials"])
