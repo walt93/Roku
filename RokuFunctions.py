@@ -48,12 +48,8 @@ def createOutput(providerName, baseUrl):
 	output["series"] = []
 	output["tvSpecials"] = []
 	output["ids"] = []
-	print(f"baseUrl = {baseUrl}")
 	output["baseUrlProgram"] = "https://" + baseUrl + "/roku.json?program_id="
 	output["baseUrlCategory"] = "https://" + baseUrl + "/roku.json?catName="
-	print(f"baseUrlProgram =" + output["baseUrlProgram"])
-	print(f"baseUrlCategory =" + output["baseUrlCategory"])
-	print(f"baseUrl = {baseUrl}")
 	return output
 
 # 2. Client calls curlJsonDict to add a category from a single-category JSON
@@ -70,6 +66,7 @@ def appendProgramId(output, name, id):
 
 def loadCategory(output, name, category):
 	url = output["baseUrlCategory"] + category
+	print(f"category = {category}")
 	print(f"url = {url}")
 	curlJsonDict(output, name, "manual", url, False)
 
