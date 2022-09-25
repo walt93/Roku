@@ -48,8 +48,8 @@ def createOutput(providerName, baseUrl):
 	output["series"] = []
 	output["tvSpecials"] = []
 	output["ids"] = []
-	output["baseUrlProgram"] = "https://" + baseUrl + "roku.json?program_id="
-	output["baseUrlCategory"] = "https://" + baseUrl + "roku.json?catName="
+	output["baseUrlProgram"] = "https://" + baseUrl + "/roku.json?program_id="
+	output["baseUrlCategory"] = "https://" + baseUrl + "/roku.json?catName="
 	return output
 
 # 2. Client calls curlJsonDict to add a category from a single-category JSON
