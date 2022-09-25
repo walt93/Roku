@@ -1,7 +1,7 @@
 from RokuFunctions import *
 
 def buildConspyreTV():
-	output = createOutput("Conspyre·TV")
+	output = createOutput("Conspyre·TV", "conspyre.tv")
 
 	prepareAllCategory()
 

@@ -33,7 +33,7 @@ maxVideos = 10000		# 1000 on Roku Direct Publisher
 # 	writeOutput(output, "conspyre-classic-conspiracy.json")
 
 # 1. Client gets an output by calling createOutput with the name of the Roku Channel
-def createOutput(providerName):
+def createOutput(providerName, baseUrl):
 	print("Building channel " + providerName)
 	print("Creating output.")
 	output = {}
@@ -48,6 +48,8 @@ def createOutput(providerName):
 	output["series"] = []
 	output["tvSpecials"] = []
 	output["ids"] = []
+	output["baseUrlProgram"] = "https://" + baseUrl + "roku.json?program_id="
+	output["baseUrlCategory"] = "https://" + baseUrl + "roku.json?catName="
 	return output
 
 # 2. Client calls curlJsonDict to add a category from a single-category JSON
@@ -55,22 +57,18 @@ def createOutput(providerName):
 # order = "chronological | most_popular | most_recent"
 # url = comes from AVideo site / category
 def loadProgramId(output, name, id):
-	#print(f"loadProgramId {name} {id}")
-	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
-	curlJsonDict(output, name, "manual", url, False)
-
-def loadCategory(output, name, category):
-	#print(f"loadCategory {name} {category}")
-	url = "https://conspyre.tv/roku.json?catName=" + category
+	url = output["baseUrlProgram"] + str(id)
 	curlJsonDict(output, name, "manual", url, False)
 
 def appendProgramId(output, name, id):
-	#print(f"appendProgramId {name} {id}")
-	url = "https://conspyre.tv/roku.json?program_id=" + str(id)
+	url = output["baseUrlProgram"] + str(id)
 	curlJsonDict(output, name, "manual", url, True)
 
+def loadCategory(output, name, category):
+	url = output["baseUrlCategory"] + category
+	curlJsonDict(output, name, "manual", url, False)
+
 def curlJsonDict(output, name, order, url, append):
-	#print(f"curlJsonDict {name} {order} {url} {append}")
 	#Set a user agent, else 403
 	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
@@ -100,8 +98,10 @@ def curlJsonDict(output, name, order, url, append):
 
 # 3. Client calls writeOutput to emit the merged Roku JSON file
 def writeOutput(output, filename):
-	#print(f"writeOutput {filename}")
-	output["ids"] = None				# don't publish this temporary variable
+	output["ids"] = None				# don't publish our temporary variables
+	output["baseUrlProgram"] = None
+	output["baseUrlCategory"] = None
+	
 	shortFormCount = len(output["shortFormVideos"])
 	seriesCount = len(output["series"])
 	tvSpecialsCount = len(output["tvSpecials"])

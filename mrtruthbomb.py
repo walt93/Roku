@@ -6,7 +6,7 @@
 from RokuFunctions import *
 
 def buildMrTruthBomb():
-	output = createOutput("Conspyre·MrTruthBomb")
+	output = createOutput("Conspyre·MrTruthBomb", "conspyre.tv")
 
 	#prepareAllCategory()
 
