@@ -48,6 +48,7 @@ def createOutput(providerName, baseUrl):
 	output["series"] = []
 	output["tvSpecials"] = []
 	output["ids"] = []
+	print(f"baseUrl = {baseUrl}")
 	output["baseUrlProgram"] = "https://" + baseUrl + "/roku.json?program_id="
 	output["baseUrlCategory"] = "https://" + baseUrl + "/roku.json?catName="
 	return output
