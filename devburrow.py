@@ -14,11 +14,11 @@ def buildBurrow():
 	#DisclosureHub curated rows
 	loadProgramId(output, "DisclosureHub Films", 59975)
 	loadProgramId(output, "DisclosureHub Picks", 59976)
-	loadProgramId(output, "Hollywood Exposed", 59977)
+	#loadProgramId(output, "Hollywood Exposed", 59977)		"Delete Hollywood exposed (Combine with human traf)"
 	loadProgramId(output, "Banned Pandemic Doctors", 59978)
 	loadProgramId(output, "Lost Covid Videos", 59979)
-	loadProgramId(output, "Hidden Health Wealth", 59980)
-	loadProgramId(output, "Remedies of Covid", 59981)
+	loadProgramId(output, "Hidden Health Wealth", 59980)	
+	#loadProgramId(output, "Remedies of Covid", 59981)		"Delete Covid remedies (combine with health wealth)"
 	loadProgramId(output, "Real Law Knowledge", 59982)
 	loadProgramId(output, "Quantum Human Capabilities", 59983)
 	loadProgramId(output, "Human Trafficking / Elite Pedophelia", 59984)
@@ -80,6 +80,7 @@ def buildBurrow():
 	loadProgramId(output, "Marrs, Jim", 60414)
 	loadProgramId(output, "Meyer, Stanley", 60415)
 	loadProgramId(output, "Mind Control", 60416)
+	loadProgramId(output, "MrTruthBomb", 69786)
 	loadProgramId(output, "Music", 61758)
 	loadProgramId(output, "Mystery Babylon Radio", 60418)
 	loadProgramId(output, "NASA", 60419)
