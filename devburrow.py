@@ -1,7 +1,7 @@
 from RokuFunctions import *
 
 def buildBurrow():
-	output = createOutput("Burrow•DEV", "conspyre.tv"))
+	output = createOutput("Burrow•DEV", "conspyre.tv")
 
 	#prepareAllCategory()
 
