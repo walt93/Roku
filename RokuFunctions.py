@@ -163,7 +163,8 @@ def mergeOutput(dict, output, schema, append):
 
 	if append == True:
 		#append just the ids to the playlist
-		output["playlists"][0]['itemIds'] += dict["playlists"][0]['itemIds']
+
+		output["playlists"][-1]['itemIds'] += dict["playlists"][0]['itemIds']
 	else:
 		output["playlists"] += dict["playlists"]		#append playlist
 		output["categories"] += dict["categories"]		#append category
