@@ -80,7 +80,7 @@ def buildBurrow():
 	loadProgramId(output, "Thunderbolts Project", 61759)
 	loadProgramId(output, "UFOs", 61763)
 
-	writeOutput(output, "/var/www/html/AVideo/rokuv2/burrow.json")
+	writeOutput(output, "/var/www/html/AVideo/rokuv2/devburrow.json")
 
 # Do it. Build the channel.
 buildBurrow()
