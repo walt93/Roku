@@ -11,8 +11,9 @@ def buildBurrow():
 	appendProgramId(output, "Featured", 61726)	#featured - tail 61726
 	
 	#Just added content
-	loadProgramId(output, "Just Added", 58474)
-	#appendProgramId(output, "Just Added", 58474)
+	loadProgramId(output, "Just Added", 75167)	#just added - head
+	appendProgramId(output, "Just Added", 58474)
+	appendProgramId(output, "Just Added", 75168)	#just added - tail
 
 	#DisclosureHub curated rows
 	loadProgramId(output, "DisclosureHub Films", 59975)
@@ -68,10 +69,9 @@ def buildBurrow():
 	loadProgramId(output, "Mouthy Buddha", 60411)
 	loadProgramId(output, "MrTruthBomb", 69786)
 	loadProgramId(output, "Music", 61758)
-	loadProgramId(output, "Mystery Babylon Radio", 60418)
 	loadProgramId(output, "NASA", 60419)
 	loadProgramId(output, "ORME", 60420)
-	loadProgramId(output, "Pizzagate", 60421)
+	loadProgramId(output, "Pizzagate", 60421)h
 	loadProgramId(output, "Q", 61753)
 	loadProgramId(output, "Remote Viewing", 60905)
 	loadProgramId(output, "Schneider, Philip", 60906)
@@ -85,3 +85,4 @@ def buildBurrow():
 # Do it. Build the channel.
 buildBurrow()
 
+# select videos_id from playlists_has_videos where playlists_id in (60320,58493,61726,58474,59975,59976,59978,59979,59980,59982,59983,59984,59985,59986,59987,60415,74478,59988,59989,61701,59660,59662,61754,60399,62937,60325,59686,59688,60328,61762,59692,59693,61761,61751,59694,59695,74211,59697,59698,59699,59835,59700,60402,60413,60403,60405,60406,74210,59991,60414,60407,60416,60411,69786,61758,60418,60419,60420,60421,61753,60905,60906,61755,61757,61759,61763)

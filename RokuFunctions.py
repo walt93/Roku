@@ -52,6 +52,13 @@ def createOutput(providerName, baseUrl):
 	output["baseUrlCategory"] = "https://" + baseUrl + "/roku.json?catName="
 	return output
 
+# 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
+reserveTopChronological(output, name):
+	return
+
+fillTopChronological(output, maxCount):
+	return
+
 # 2. Client calls curlJsonDict to add a category from a single-category JSON
 # name = How your category appears in Roku Direct Publisher
 # order = "chronological | most_popular | most_recent"
@@ -154,6 +161,7 @@ def writeOutput(output, filename):
 
 def mergeOutput(dict, output, schema, append):
 	for m in dict["movies"]:						#iterate incoming movies
+		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# Fuck this fucking broken fucking _roku jpeg it doesn't fucking work some % of the time - and we always have a fucking thumbnail anyway, fucking POS…
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
 			if len(m["shortDescription"]) == 0:		#fix empty description
 				m["shortDescription"] = output["providerName"] + ": " + dict["categories"][0]["name"]
