@@ -31,7 +31,6 @@ def buildColonyDev():
 	loadCategory(output, "SGT Report", "sgt-report")			# 20
 	loadCategory(output, "Tore Says", "tore-says")				# 
 	loadCategory(output, "TRUreporting", "trureporting")		# √ 18
-	loadCategory(output, "Woke Societies", "woke-societies")	# 
 
 	#fillTopChronological(output, 100)	# up to 100 videos max
 
