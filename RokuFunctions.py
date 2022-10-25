@@ -53,10 +53,10 @@ def createOutput(providerName, baseUrl):
 	return output
 
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
-reserveTopChronological(output, name):
+def reserveTopChronological(output, name):
 	return
 
-fillTopChronological(output, maxCount):
+def fillTopChronological(output, maxCount):
 	return
 
 # 2. Client calls curlJsonDict to add a category from a single-category JSON
