@@ -1,6 +1,6 @@
 from RokuFunctions import *
 
-def buildBurrow():
+def buildColonyDev():
 	output = createOutput("Burrow•DEV", "conspyre.tv")
 
 	#prepareAllCategory()
@@ -20,6 +20,7 @@ def buildBurrow():
 	loadCategory(output, "Kate Awakening", "kate-awakening")	# 
 	loadCategory(output, "L", "l")								# 16
 	loadProgramId(output, "M3thods", 59991)						# √
+#	loadProgramId(output, "Mouthy Buddha", 60411)				# √
 	loadCategory(output, "Patel Patriot", "patel-patriot")		# 16
 	loadCategory(output, "Praying Medic", "praying-medic")		#
 	loadCategory(output, "Quite Frankly", "quite-frankly")		# 17
@@ -37,7 +38,5 @@ def buildBurrow():
 	writeOutput(output, "/var/www/html/AVideo/rokuv2/devcolony.json")
 
 # Do it. Build the channel.
-buildBurrow()
+buildColonyDev()
 
-	loadProgramId(output, "BradCGZ", 62937)						# √ 30+
-	loadProgramId(output, "Mouthy Buddha", 60411)				# √
