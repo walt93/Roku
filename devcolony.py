@@ -23,7 +23,7 @@ def buildColonyDev():
 #	loadProgramId(output, "Mouthy Buddha", 60411)				# √
 	loadCategory(output, "Patel Patriot", "patel-patriot")		# 16
 	loadCategory(output, "Praying Medic", "praying-medic")		#
-	loadCategory(output, "Quite Frankly", "quite-frankly")		# 17
+	loadCategory(output, "Quite Frankly", "quite-framkly")		# 17
 	loadCategory(output, "Really Graceful", "really-graceful")	# 26
 	loadCategory(output, "Redpill78", "redpill78")				# 17
 	loadCategory(output, "Robert Sepehr", "robert-sepehr")		# √
