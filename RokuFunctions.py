@@ -117,7 +117,7 @@ def writeOutput(output, filename):
 	categoriesCount = len(output["categories"])
 
 	if shortFormCount == 0:
-		output.pop("shortFormVideos", None)n
+		output.pop("shortFormVideos", None)
 	else:
 		print(f"shortFormVideos have {moviesCount}")
 	if seriesCount == 0:
