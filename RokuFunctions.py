@@ -175,29 +175,29 @@ def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 	commercials_count = len(commercials["movies"])
 	commercials_index = 0
 
-	r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	response4 = urlopen(r4).read()
-	memes = json.loads(response4)
-	memes_count = len(memes["movies"])
-	memes_index = 0
+	# r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	# response3 = urlopen(r3).read()
+	# bumpers = json.loads(response3)
+	# bumpers_count = len(bumpers["movies"])
+	# bumpers_index = 0
 
-	r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	response3 = urlopen(r3).read()
-	bumpers = json.loads(response3)
-	bumpers_count = len(bumpers["movies"])
-	bumpers_index = 0
+	# r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	# response4 = urlopen(r4).read()
+	# memes = json.loads(response4)
+	# memes_count = len(memes["movies"])
+	# memes_index = 0
 
 	for m in playlist["movies"]:						#iterate incoming movies
 		# append a featured piece
 		appendMovieToOutput(output, m["content"]["videos"][0]["url"])
 
 		# append a meme
-		mm = memes["movies"][memes_index]
-		appendMovieToOutput(output, mm["content"]["videos"][0]["url"])
+		# mm = memes["movies"][memes_index]
+		# appendMovieToOutput(output, mm["content"]["videos"][0]["url"])
 
-		memes_index = memes_index + 1
-		if memes_index == memes_count:
-			memes_index = 0
+		# memes_index = memes_index + 1
+		# if memes_index == memes_count:
+		# 	memes_index = 0
 
 		# followed by a commercial
 
@@ -210,12 +210,12 @@ def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 
 		# followed by a bumper
 
-		b = bumpers["movies"][bumpers_index]
-		appendMovieToOutput(output, b["content"]["videos"][0]["url"])
+		# b = bumpers["movies"][bumpers_index]
+		# appendMovieToOutput(output, b["content"]["videos"][0]["url"])
 
-		bumpers_index = bumpers_index + 1
-		if bumpers_index == bumpers_count:
-			bumpers_index = 0
+		# bumpers_index = bumpers_index + 1
+		# if bumpers_index == bumpers_count:
+		# 	bumpers_index = 0
 
 	mergeOutput(values, output, "movies", append)	#hardcode schema for now
 	return values
