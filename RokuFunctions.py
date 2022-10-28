@@ -217,7 +217,6 @@ def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 		# if bumpers_index == bumpers_count:
 		# 	bumpers_index = 0
 
-	mergeOutput(values, output, "movies", append)	#hardcode schema for now
 	return values
 
 def appendMovieToOutput(output, url):
