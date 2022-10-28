@@ -171,20 +171,20 @@ def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 	r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
 
 	response1 = urlopen(r1).read()
-	playlist = json.loads(response)
+	playlist = json.loads(response1)
 
 	response2 = urlopen(r2).read()
-	commercials = json.loads(response)
+	commercials = json.loads(response2)
 	commercials_count = len(commercials["movies"])
 	commercials_index = 0
 
 	response3 = urlopen(r3).read()
-	bumpers = json.loads(response)
+	bumpers = json.loads(response3)
 	bumpers_count = len(bumpers["movies"])
 	bumpers_index = 0
 
-	respons4 = urlopen(r4).read()
-	memes = json.loads(response)
+	response4 = urlopen(r4).read()
+	memes = json.loads(response4)
 	memes_count = len(memes["movies"])
 	memes_index = 0
 
