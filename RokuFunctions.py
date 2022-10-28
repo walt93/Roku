@@ -159,6 +159,7 @@ def writeOutput(output, filename):
 def createAntMediaPlaylist(playlistName):
 	output = {}
 	output["name"] = "playlistName"
+	output["type"] = "playlist"
 	output["playListItemList"] = []
 	return output
 
