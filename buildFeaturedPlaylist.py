@@ -1,4 +1,4 @@
-import RokuFunctions
+from RokuFunctions import *
 
 def buildFeaturedPlaylist():
 	output = createAntMediaPlaylist("24/7 loop")
