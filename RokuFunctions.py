@@ -175,17 +175,17 @@ def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 	commercials_count = len(commercials["movies"])
 	commercials_index = 0
 
-	# r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	# response3 = urlopen(r3).read()
-	# bumpers = json.loads(response3)
-	# bumpers_count = len(bumpers["movies"])
-	# bumpers_index = 0
+	r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	response3 = urlopen(r3).read()
+	bumpers = json.loads(response3)
+	bumpers_count = len(bumpers["movies"])
+	bumpers_index = 0
 
-	# r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	# response4 = urlopen(r4).read()
-	# memes = json.loads(response4)
-	# memes_count = len(memes["movies"])
-	# memes_index = 0
+	r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	response4 = urlopen(r4).read()
+	memes = json.loads(response4)
+	memes_count = len(memes["movies"])
+	memes_index = 0
 
 	for m in playlist["movies"]:						#iterate incoming movies
 		# append a featured piece
