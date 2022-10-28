@@ -234,9 +234,10 @@ def writeAntMediaJSON(output, filename):
 
 	print(f"Writing output to: {filename}")
 	with open(filename, "w") as outfile:
+		outfile.write("curl -X POST -H \"Content-Type: application/json\" \"https://kappy.conspyre.tv:5443/LiveApp/rest/v2/broadcasts/create\" -d '")
 		outfile.write(json_object)
-
-	print("Fin.")
+		outfile.write("'\n\n")
+	print("Fin.")	
 
 ########################################################################################################################
 # Private methods
