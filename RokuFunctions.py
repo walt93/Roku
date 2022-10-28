@@ -217,8 +217,6 @@ def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 		# if bumpers_index == bumpers_count:
 		# 	bumpers_index = 0
 
-	return values
-
 def appendMovieToOutput(output, url):
 	out = {}
 	out["streamUrl"] = url
