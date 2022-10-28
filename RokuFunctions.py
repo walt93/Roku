@@ -158,7 +158,7 @@ def writeOutput(output, filename):
 # 1. Client calls createAntMediaPlaylist with the name of the playlist
 def createAntMediaPlaylist(playlistName):
 	output = {}
-	output["name"] = "playlistName"
+	output["name"] = playlistName
 	output["type"] = "playlist"
 	output["playListItemList"] = []
 	return output
