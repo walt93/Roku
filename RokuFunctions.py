@@ -166,27 +166,26 @@ def createAntMediaPlaylist(playlistName):
 def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 	#Set a user agent, else 403
 	r1 = Request(playlistUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	r2 = Request(commercialsUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
-
 	response1 = urlopen(r1).read()
 	playlist = json.loads(response1)
 
+	r2 = Request(commercialsUrl, headers={'User-Agent': 'Mozilla/5.0'})
 	response2 = urlopen(r2).read()
 	commercials = json.loads(response2)
 	commercials_count = len(commercials["movies"])
 	commercials_index = 0
 
-	response3 = urlopen(r3).read()
-	bumpers = json.loads(response3)
-	bumpers_count = len(bumpers["movies"])
-	bumpers_index = 0
-
+	r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
 	response4 = urlopen(r4).read()
 	memes = json.loads(response4)
 	memes_count = len(memes["movies"])
 	memes_index = 0
+
+	r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	response3 = urlopen(r3).read()
+	bumpers = json.loads(response3)
+	bumpers_count = len(bumpers["movies"])
+	bumpers_index = 0
 
 	for m in playlist["movies"]:						#iterate incoming movies
 		# append a featured piece
