@@ -117,7 +117,7 @@ def writeOutput(output, filename):
 	categoriesCount = len(output["categories"])
 
 	if shortFormCount == 0:
-		output.pop("shortFormVideos", None)
+		output.pop("shortFormVideos", None)n
 	else:
 		print(f"shortFormVideos have {moviesCount}")
 	if seriesCount == 0:
@@ -155,6 +155,87 @@ def writeOutput(output, filename):
 
 	print("Fin.")
 
+# 1. Client calls createAntMediaPlaylist with the name of the playlist
+def createAntMediaPlaylist(playlistName):
+	output = {}
+	output["name"] = "playlistName"
+	output["playListItemList"] = []
+	return output
+
+# 2. Client calls buildPlaylist with urls for: video files, commercials, bumpers and memes
+def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl)
+	#Set a user agent, else 403
+	r1 = Request(playlistUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	r2 = Request(commercialsUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
+	r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
+
+	response1 = urlopen(r1).read()
+	playlist = json.loads(response)
+
+	response2 = urlopen(r2).read()
+	commercials = json.loads(response)
+	commercials_count = len(commercials["movies"])
+	commercials_index = 0
+
+	response3 = urlopen(r3).read()
+	bumpers = json.loads(response)
+	bumpers_count = len(bumpers["movies"])
+	bumpers_index = 0
+
+	respons4 = urlopen(r4).read()
+	memes = json.loads(response)
+	memes_count = len(memes["movies"])
+	memes_index = 0
+
+	for m in playlist["movies"]:						#iterate incoming movies
+		# append a featured piece
+		appendMovieToOutput(output, m["content"]["videos"][0]["url"])
+
+		# append a meme
+		mm = memes["movies"][memes_index]
+		appendMovieToOutput(output, mm["content"]["videos"][0]["url"])
+
+		memes_index = memes_index + 1
+		if memes_index == memes_count:
+			memes_index = 0
+
+		# followed by a commercial
+
+		c = commercials["movies"][commercials_index]
+		appendMovieToOutput(output, c["content"]["videos"][0]["url"])
+
+		commercials_index = commercials_index + 1
+		if commercials_index == commercials_count:
+			commercials_index = 0
+
+		# followed by a bumper
+
+		b = bumpers["movies"][bumpers_index]
+		appendMovieToOutput(output, b["content"]["videos"][0]["url"])
+
+		bumpers_index = bumpers_index + 1
+		if bumpers_index == bumpers_count:
+			bumpers_index = 0
+
+	mergeOutput(values, output, "movies", append)	#hardcode schema for now
+	return values
+
+def appendMovieToOutput(output, url):
+	out = {}
+	out["streamUrl"] = url
+	out["type"] = "VoD"
+	output["playListItemList"].append(out)
+
+def writeAntMediaJSON(output, filename):
+	print("Serializing.")
+	json_object = json.dumps(output, indent=4)
+
+	print(f"Writing output to: {filename}")
+	with open(filename, "w") as outfile:
+		outfile.write(json_object)
+
+	print("Fin.")
 
 ########################################################################################################################
 # Private methods
