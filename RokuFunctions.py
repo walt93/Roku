@@ -163,7 +163,7 @@ def createAntMediaPlaylist(playlistName):
 	return output
 
 # 2. Client calls buildPlaylist with urls for: video files, commercials, bumpers and memes
-def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl)
+def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
 	#Set a user agent, else 403
 	r1 = Request(playlistUrl, headers={'User-Agent': 'Mozilla/5.0'})
 	r2 = Request(commercialsUrl, headers={'User-Agent': 'Mozilla/5.0'})
