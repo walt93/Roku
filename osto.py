@@ -3,7 +3,7 @@ from RokuFunctions import *
 def buildOSTO():
 	output = createOutput("OSTO•Space", "conspyre.tv")
 							
-	loadProgramId(output, "Featured", 92884)
+	loadProgramId(output, "Featured", 92884)			#https://conspyre.tv/roku.json?program_id=92884
 
 	#Alphabetical categories
 	loadProgramId(output, "1/6/2021 PRISONERS", 92861)

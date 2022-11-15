@@ -65,6 +65,7 @@ def fillTopChronological(output, maxCount):
 # url = comes from AVideo site / category
 def loadProgramId(output, name, id):
 	url = output["baseUrlProgram"] + str(id)
+	print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False)
 
 def appendProgramId(output, name, id):
