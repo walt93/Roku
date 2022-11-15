@@ -11,7 +11,7 @@ def buildOSTO():
 	loadProgramId(output, "THE JABS", 92891)
 	loadProgramId(output, "HUMAN TRAFFICKING", 92872)
 	loadProgramId(output, "THE SATANICS", 92892)
-	loadProgramId(output, "DEEP STATE MEANS OBAMAGATE", 92869
+	loadProgramId(output, "DEEP STATE MEANS OBAMAGATE", 92869)
 	loadProgramId(output, "CRYPTO-CURRENCY & (QFS)", 92868)
 	loadProgramId(output, "CPS-ADOPTION-FOSTER SYSTEM", 92867)
 	loadProgramId(output, "ADRENOCHROME IS PEOPLE", 92862)
