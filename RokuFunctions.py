@@ -7,7 +7,9 @@ from enum import Enum
 maxCategories = 100		# 15 on Roku Direct Publisher
 maxCount = 150			# 40 on Roku Direct Publisher
 maxVideos = 10000		# 1000 on Roku Direct Publisher
-
+recentVideos = {}
+makeRecent = False
+recentVideoDate = ""
 #
 # Usage:
 #
@@ -54,6 +56,10 @@ def createOutput(providerName, baseUrl):
 
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
 def reserveTopChronological(output, name):
+	makeRecent = True
+	recentVideos["name"]=name.lower().replace(" ", "")
+	recentVideos["itemIds"]=[]
+	recentVideoDate = date.today() - timedelta(days = 14)
 	return
 
 def fillTopChronological(output, maxCount):
@@ -246,13 +252,15 @@ def writeAntMediaJSON(output, filename):
 
 def mergeOutput(dict, output, schema, append):
 	for m in dict["movies"]:						#iterate incoming movies
-		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# Fuck this fucking broken fucking _roku jpeg it doesn't fucking work some % of the time - and we always have a fucking thumbnail anyway, fucking POS…
+		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# roku jpeg doesn't work some % of the time, but, we always seem to have a thumbnail - let's just use it
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
 			if len(m["shortDescription"]) == 0:		#fix empty description
 				m["shortDescription"] = output["providerName"] + ": " + dict["categories"][0]["name"]
 				m["longDescription"] = m["shortDescription"]	
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
+			if m["releaseDate"] > recentVideoDate:
+				recentVideos.append(m)
 
 	if append == True:
 		#append just the ids to the playlist
