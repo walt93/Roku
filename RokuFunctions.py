@@ -10,6 +10,8 @@ maxVideos = 10000		# 1000 on Roku Direct Publisher
 
 makeRecent = False
 recentVideoDate = ""
+reserveIndex = -1
+
 #
 # Usage:
 #
@@ -58,8 +60,21 @@ def createOutput(providerName, baseUrl):
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
 def reserveTopChronological(output, name):
 	makeRecent = True
-	output["recentVideos"]["name"] = name.lower().replace(" ", "")
-	output["recentVideos"]["ritemIds"] = []
+
+	playlist = {}
+	playlistName = name.lower().replace(" ", "")
+	playlist["name"] = playlistName
+	playlist["itemIds"] = []
+
+	category = {}
+	category["name"] = name
+	category["playlistName"] = playlistName
+	category["order"] = "manual"
+
+	reserveIndex = len(output["playlists"])
+	output["playlists"] += playlist		#append playlist
+	output["categories"] += category	#append category
+
 	recentVideoDate = date.today() - timedelta(days = 14)
 	return
 
@@ -163,96 +178,10 @@ def writeOutput(output, filename):
 
 	print("Fin.")
 
-# 1. Client calls createAntMediaPlaylist with the name of the playlist
-def createAntMediaPlaylist(playlistName):
-	output = {}
-	output["name"] = playlistName
-	output["type"] = "playlist"
-	output["playListItemList"] = []
-	return output
-
-# 2. Client calls buildPlaylist with urls for: video files, commercials, bumpers and memes
-def buildPlaylist(output, playlistUrl, commercialsUrl, bumpersUrl, memesUrl):
-	#Set a user agent, else 403
-	print("loading playlist " + playlistUrl)
-	r1 = Request(playlistUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	response1 = urlopen(r1).read()
-	playlist = json.loads(response1)
-
-	print("loading commercials " + commercialsUrl)
-	r2 = Request(commercialsUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	response2 = urlopen(r2).read()
-	commercials = json.loads(response2)
-	commercials_count = len(commercials["movies"])
-	commercials_index = 0
-
-	print("loading bumpers " + bumpersUrl)
-	r3 = Request(bumpersUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	response3 = urlopen(r3).read()
-	bumpers = json.loads(response3)
-	bumpers_count = len(bumpers["movies"])
-	bumpers_index = 0
-
-	print("loading memes " + memesUrl)
-	r4 = Request(memesUrl, headers={'User-Agent': 'Mozilla/5.0'})
-	response4 = urlopen(r4).read()
-	memes = json.loads(response4)
-	memes_count = len(memes["movies"])
-	memes_index = 0
-
-	print("mixing")
-	for m in playlist["movies"]:						#iterate incoming movies
-		# append a featured piece
-		appendMovieToOutput(output, m["content"]["videos"][0]["url"])
-
-		# append a meme
-		# mm = memes["movies"][memes_index]
-		# appendMovieToOutput(output, mm["content"]["videos"][0]["url"])
-
-		# memes_index = memes_index + 1
-		# if memes_index == memes_count:
-		# 	memes_index = 0
-
-		# followed by a commercial
-
-		c = commercials["movies"][commercials_index]
-		appendMovieToOutput(output, c["content"]["videos"][0]["url"])
-
-		commercials_index = commercials_index + 1
-		if commercials_index == commercials_count:
-			commercials_index = 0
-
-		# followed by a bumper
-
-		# b = bumpers["movies"][bumpers_index]
-		# appendMovieToOutput(output, b["content"]["videos"][0]["url"])
-
-		# bumpers_index = bumpers_index + 1
-		# if bumpers_index == bumpers_count:
-		# 	bumpers_index = 0
-
-def appendMovieToOutput(output, url):
-	out = {}
-	out["streamUrl"] = url
-	out["type"] = "VoD"
-	output["playListItemList"].append(out)
-
-def writeAntMediaJSON(output, filename):
-	print("Serializing.")
-	json_object = json.dumps(output, indent=4)
-
-	print(f"Writing output to: {filename}")
-	with open(filename, "w") as outfile:
-		outfile.write("curl -X POST -H \"Content-Type: application/json\" \"https://kappy.conspyre.tv:5443/LiveApp/rest/v2/broadcasts/create\" -d '")
-		outfile.write(json_object)
-		outfile.write("'\n\n")
-	print("Fin.")	
-
 ########################################################################################################################
 # Private methods
 
 def mergeOutput(dict, output, schema, append):
-	rv = output["recentVideos"]
 	for m in dict["movies"]:						#iterate incoming movies
 		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# roku jpeg doesn't work some % of the time, but, we always seem to have a thumbnail - let's just use it
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
@@ -261,8 +190,8 @@ def mergeOutput(dict, output, schema, append):
 				m["longDescription"] = m["shortDescription"]	
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
-			if m["releaseDate"] > recentVideoDate:
-				rv["ritemIds"].append(m["id"])
+			if makeRecent && m["releaseDate"] > recentVideoDate:
+				output["playlists"][reserveIndex].append(m["id"])
 
 	if append == True:
 		#append just the ids to the playlist
