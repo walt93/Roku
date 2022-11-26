@@ -59,7 +59,7 @@ def createOutput(providerName, baseUrl):
 def reserveTopChronological(output, name):
 	makeRecent = True
 	output["recentVideos"]["name"] = name.lower().replace(" ", "")
-	output["recentVideos"]["itemIds"] = []
+	output["recentVideos"]["ritemIds"] = []
 	recentVideoDate = date.today() - timedelta(days = 14)
 	return
 
@@ -262,7 +262,7 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			if m["releaseDate"] > recentVideoDate:
-				rv["itemIds"].append(m["id"])
+				rv["ritemIds"].append(m["id"])
 
 	if append == True:
 		#append just the ids to the playlist
