@@ -138,6 +138,11 @@ def writeOutput(output, filename):
 	output["baseUrlProgram"] = None
 	output["baseUrlCategory"] = None
 
+	if makeRecent == True:
+		keys = output["recentVideos"].keys().sort()
+		for key in keys:
+			output["playlists"][reserveIndex]["itemIds"].append(output["recentVideos"][key])
+
 	shortFormCount = len(output["shortFormVideos"])
 	seriesCount = len(output["series"])
 	tvSpecialsCount = len(output["tvSpecials"])
@@ -199,7 +204,7 @@ def mergeOutput(dict, output, schema, append):
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
 			if (makeRecent == True) and (d2.date() >= d1):
-				output["playlists"][reserveIndex]["itemIds"].append(m["id"])
+				output["recentVideos"][d2] = m["idx"]
 
 	if append == True:
 		#append just the ids to the playlist
