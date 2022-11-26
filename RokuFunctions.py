@@ -72,14 +72,11 @@ def reserveTopChronological(output, name):
 	playlist["name"] = playlistName
 	playlist["itemIds"] = []
 
-	print(f"playlist = {playlist}")
 	category = {}
 	category["name"] = name
 	category["playlistName"] = playlistName
 	category["order"] = "manual"
-	print(f"category = {category}")
 
-	print(f"len = {len(output['playlists'])}")
 	reserveIndex = len(output["playlists"])
 	output["playlists"].append(playlist)	#append playlist
 	output["categories"].append(category)	#append category
@@ -201,9 +198,9 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
-			print(f"reserveIndex = {reserveIndex}")
-			if d1 < d2.date():
-				output["playlists"][reserveIndex].append(m["id"])
+			if makeRecent == True:
+				if d1 < d2.date():
+					output["playlists"][reserveIndex].append(m["id"])
 
 	if append == True:
 		#append just the ids to the playlist
