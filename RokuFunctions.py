@@ -195,6 +195,7 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			if makeRecent:
+				print(f"d1{}, d2{recentVideoDate}", m["releaseDate"])
 				if m["releaseDate"] > recentVideoDate:
 					output["playlists"][reserveIndex].append(m["id"])
 
