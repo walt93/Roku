@@ -63,6 +63,8 @@ def createOutput(providerName, baseUrl):
 
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
 def reserveTopChronological(output, name):
+	global reserveIndex
+	global makeRecent
 	makeRecent = True
 
 	playlist = {}
