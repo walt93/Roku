@@ -260,7 +260,7 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			if m["releaseDate"] > recentVideoDate:
-				recentVideos.append(m)
+				recentVideos[itemIds].append(m["id"])
 
 	if append == True:
 		#append just the ids to the playlist
