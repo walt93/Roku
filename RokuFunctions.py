@@ -188,7 +188,7 @@ def writeOutput(output, filename):
 # Private methods
 
 def mergeOutput(dict, output, schema, append):
-	recentVideoDate = date.today() - timedelta(days = 14)
+	d1 = date.today() - timedelta(days = 14)
 	for m in dict["movies"]:						#iterate incoming movies
 		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# roku jpeg doesn't work some % of the time, but, we always seem to have a thumbnail - let's just use it
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
@@ -198,8 +198,8 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
-			print(f"d1{d1}, d2{recentVideoDate}")
-			if d1 > d2:
+			print(f"d1{d1}, d2{d2}")
+			if d1 < d2:
 				output["playlists"][reserveIndex].append(m["id"])
 
 	if append == True:
