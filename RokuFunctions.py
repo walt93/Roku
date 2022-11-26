@@ -139,7 +139,7 @@ def writeOutput(output, filename):
 	output["baseUrlCategory"] = None
 
 	if makeRecent == True:
-		keys = sorted(output["recentVideos"].keys())
+		keys = sorted(output["recentVideos"].keys()).reverse()
 		for key in keys:
 			output["playlists"][reserveIndex]["itemIds"].append(output["recentVideos"][key])
 
