@@ -252,6 +252,7 @@ def writeAntMediaJSON(output, filename):
 # Private methods
 
 def mergeOutput(dict, output, schema, append):
+	rv = output["recentVideos"]
 	for m in dict["movies"]:						#iterate incoming movies
 		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# roku jpeg doesn't work some % of the time, but, we always seem to have a thumbnail - let's just use it
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
@@ -261,7 +262,7 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			if m["releaseDate"] > recentVideoDate:
-				output["recentVideos"]["itemIds"].append(m["id"])
+				rv["itemIds"].append(m["id"])
 
 	if append == True:
 		#append just the ids to the playlist
