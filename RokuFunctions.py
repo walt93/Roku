@@ -2,7 +2,6 @@ import datetime
 from datetime import date
 from datetime import timedelta
 from dateutil.parser import parse
-from datetime import datetime
 
 import json
 import urllib.request
