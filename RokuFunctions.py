@@ -77,9 +77,8 @@ def reserveTopChronological(output, name):
 	category["order"] = "manual"
 	print(f"category = {category}")
 
-	print(f"reserveIndex = {reserveIndex}")
+	print(f"len = {len(output["playlists"])}")
 	reserveIndex = len(output["playlists"])
-	print(f"reserveIndex = {reserveIndex}")
 	output["playlists"].append(playlist)	#append playlist
 	output["categories"].append(category)	#append category
 
