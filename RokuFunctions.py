@@ -7,7 +7,7 @@ from enum import Enum
 maxCategories = 100		# 15 on Roku Direct Publisher
 maxCount = 150			# 40 on Roku Direct Publisher
 maxVideos = 10000		# 1000 on Roku Direct Publisher
-recentVideos = {}
+
 makeRecent = False
 recentVideoDate = ""
 #
@@ -50,6 +50,7 @@ def createOutput(providerName, baseUrl):
 	output["series"] = []
 	output["tvSpecials"] = []
 	output["ids"] = []
+	output["recentVideos"] = {}
 	output["baseUrlProgram"] = "https://" + baseUrl + "/roku.json?program_id="
 	output["baseUrlCategory"] = "https://" + baseUrl + "/roku.json?catName="
 	return output
@@ -57,8 +58,8 @@ def createOutput(providerName, baseUrl):
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
 def reserveTopChronological(output, name):
 	makeRecent = True
-	recentVideos["name"] = name.lower().replace(" ", "")
-	recentVideos["itemIds"] = []
+	output["recentVideos"]["name"] = name.lower().replace(" ", "")
+	output["recentVideos"]["itemIds"] = []
 	recentVideoDate = date.today() - timedelta(days = 14)
 	return
 
@@ -260,7 +261,7 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			if m["releaseDate"] > recentVideoDate:
-				recentVideos["itemIds"].append(m["id"])
+				output["recentVideos"]["itemIds"].append(m["id"])
 
 	if append == True:
 		#append just the ids to the playlist
