@@ -76,8 +76,8 @@ def reserveTopChronological(output, name):
 	print(f"category = {category}")
 
 	reserveIndex = len(output["playlists"])
-	output["playlists"] += playlist		#append playlist
-	output["categories"] += category	#append category
+	output["playlists"].append(playlist)	#append playlist
+	output["categories"].append(category)	#append category
 
 	recentVideoDate = date.today() - timedelta(days = 14)
 	return
