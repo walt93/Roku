@@ -1,6 +1,9 @@
 import datetime
 from datetime import date
 from datetime import timedelta
+from dateutil.parser import parse
+from datetime import datetime
+
 import json
 import urllib.request
 from urllib.request import urlopen, Request
@@ -195,9 +198,9 @@ def mergeOutput(dict, output, schema, append):
 				m["longDescription"] = m["shortDescription"]	
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
-			d1 = m["releaseDate"]
+			d2 = parser.parse(m["releaseDate"])
 			print(f"d1{d1}, d2{recentVideoDate}")
-			if d1 > recentVideoDate:
+			if d1 > d2:
 				output["playlists"][reserveIndex].append(m["id"])
 
 	if append == True:
