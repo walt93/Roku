@@ -8,7 +8,7 @@ def buildColonyDev():
 	#Featured content
 	loadProgramId(output, "Burrow: Featured", 58493)
 	loadProgramId(output, "Burrow: Just Added", 58474)
-	#reserveTopChronological(output, "Latest Podcasts")
+	reserveTopChronological(output, "Latest Podcasts")
 
 	#Alphabetical podcasters
 	loadCategory(output, "Amazing Polly", "amazing-polly")		# √ 32
