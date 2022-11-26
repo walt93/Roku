@@ -68,12 +68,12 @@ def reserveTopChronological(output, name):
 	playlist["name"] = playlistName
 	playlist["itemIds"] = []
 
-print(f"playlist = {playlist}")
+	print(f"playlist = {playlist}")
 	category = {}
 	category["name"] = name
 	category["playlistName"] = playlistName
 	category["order"] = "manual"
-print(f"category = {category}")
+	print(f"category = {category}")
 
 	reserveIndex = len(output["playlists"])
 	output["playlists"] += playlist		#append playlist
