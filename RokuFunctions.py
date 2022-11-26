@@ -139,8 +139,8 @@ def writeOutput(output, filename):
 	output["baseUrlCategory"] = None
 
 	if makeRecent == True:
-		keys = sorted(output["recentVideos"].keys()).reverse()
-		for key in keys:
+		keys = sorted(output["recentVideos"].keys())
+		for key in reversed(keys):
 			output["playlists"][reserveIndex]["itemIds"].append(output["recentVideos"][key])
 
 	shortFormCount = len(output["shortFormVideos"])
