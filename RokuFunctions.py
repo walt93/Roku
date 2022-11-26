@@ -197,7 +197,7 @@ def mergeOutput(dict, output, schema, append):
 				m["longDescription"] = m["shortDescription"]	
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
-			d2 = parser.parse(m["releaseDate"])
+			d2 = parser.parse(timestr:m["releaseDate"])
 			print(f"d1{d1}, d2{recentVideoDate}")
 			if d1 > d2:
 				output["playlists"][reserveIndex].append(m["id"])
