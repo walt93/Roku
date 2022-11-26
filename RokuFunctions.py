@@ -198,7 +198,7 @@ def mergeOutput(dict, output, schema, append):
 			output["ids"].append(m["id"])			#save id
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
-			print(f"d1{d1}, d2{d2}")
+			print(f"reserveIndex = {reserveIndex}")
 			if d1 < d2.date():
 				output["playlists"][reserveIndex].append(m["id"])
 
