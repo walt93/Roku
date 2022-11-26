@@ -57,8 +57,8 @@ def createOutput(providerName, baseUrl):
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
 def reserveTopChronological(output, name):
 	makeRecent = True
-	recentVideos["name"]=name.lower().replace(" ", "")
-	recentVideos["itemIds"]=[]
+	recentVideos["name"] = name.lower().replace(" ", "")
+	recentVideos["itemIds"] = []
 	recentVideoDate = date.today() - timedelta(days = 14)
 	return
 
