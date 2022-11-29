@@ -1,7 +1,7 @@
 from RokuFunctions import *
 
 def buildBurrow():
-	output = createOutput("Burrow•DEV", "conspyre.tv")
+	output = createOutput("Burrow DEV", "conspyre.tv")
 
 	#prepareAllCategory()
 
@@ -71,7 +71,7 @@ def buildBurrow():
 	loadProgramId(output, "Music", 61758)
 	loadProgramId(output, "NASA", 60419)
 	loadProgramId(output, "ORME", 60420)
-	loadProgramId(output, "Pizzagate", 60421)h
+	loadProgramId(output, "Pizzagate", 60421)
 	loadProgramId(output, "Q", 61753)
 	loadProgramId(output, "Remote Viewing", 60905)
 	loadProgramId(output, "Schneider, Philip", 60906)

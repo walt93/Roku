@@ -1,7 +1,7 @@
 from RokuFunctions import *
 
 def buildColonyDev():
-	output = createOutput("Burrow•Colony DEV", "conspyre.tv")
+	output = createOutput("Burrow•Colony", "conspyre.tv")
 
 	#prepareAllCategory()
 
@@ -36,7 +36,7 @@ def buildColonyDev():
 
 	#fillTopChronological(output, 100)	# up to 100 videos max
 
-	writeOutput(output, "/var/www/html/AVideo/rokuv2/devcolony.json")
+	writeOutput(output, "/var/www/html/AVideo/rokuv2/colony.json")
 
 # Do it. Build the channel.
 buildColonyDev()
