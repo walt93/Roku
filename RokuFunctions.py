@@ -201,6 +201,11 @@ def mergeOutput(dict, output, schema, append):
 				m["shortDescription"] = output["providerName"] + ": " + dict["categories"][0]["name"]
 				m["longDescription"] = m["shortDescription"]	
 			output["ids"].append(m["id"])			#save id
+
+			# if duration is < 300 seconds (5minutes) then, remove the ad breaks
+			if m["content"]["duration"] <= 300:	    
+				m["content"].pop("adBreaks")		
+
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
 			if (makeRecent == True) and (d2.date() >= d1):
