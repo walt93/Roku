@@ -10,11 +10,6 @@ def buildBurrow():
 	appendProgramId(output, "Featured", 58493)
 	appendProgramId(output, "Featured", 61726)	#featured - tail 61726
 	
-	#Just added content
-	loadProgramId(output, "Just Added", 75167)	#just added - head
-	appendProgramId(output, "Just Added", 58474)
-	appendProgramId(output, "Just Added", 75168)	#just added - tail
-
 	#DisclosureHub curated rows
 	loadProgramId(output, "DisclosureHub Films", 59975)
 	loadProgramId(output, "DisclosureHub Picks", 59976)
@@ -32,6 +27,11 @@ def buildBurrow():
 	loadProgramId(output, "EMF/EMR/RF/5G Radiation", 59988)
 	loadProgramId(output, "Extraterrestrial Videos", 59989)
 	loadProgramId(output, "Vaccines Exposed", 61701)
+
+	#Just added content
+	#loadProgramId(output, "Just Added", 75167)	#just added - head
+	loadProgramId(output, "Conspyre.tv just added", 58474)
+	#appendProgramId(output, "Just Added", 75168)	#just added - tail
 
 	#Alphabetical categories, documentaries, people
 	loadProgramId(output, "5G", 59660)
