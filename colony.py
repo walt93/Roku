@@ -20,6 +20,7 @@ def buildColonyDev():
 	loadProgramId(output, "IPOT1776", 60413)
 #	loadCategory(output, "Jordan Sather", "jordan-sather")		# 18
 #	loadCategory(output, "L", "l")								# 16
+	loadCategory(output, "Lisa Mei Crowley", "lisa-mei-crowley")								
 	loadProgramId(output, "M3thods", 59991)						# √
 	loadProgramId(output, "Music", 61758)
 #	loadProgramId(output, "Mouthy Buddha", 60411)				# √
