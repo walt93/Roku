@@ -11,14 +11,15 @@ def buildColonyDev():
 	reserveTopChronological(output, "Latest Podcasts")
 
 	#Alphabetical podcasters
-	loadCategory(output, "Amazing Polly", "amazing-polly")		# √ 32
+#	loadCategory(output, "Amazing Polly", "amazing-polly")		# √ 32
+	loadCategory(output, "Brad & Abbey Show", "brad-abbey-show")
 	loadProgramId(output, "BradCGZ", 62937)
 #	loadCategory(output, "Corbett Report", "corbett-report")	# √ 18
 #	loadCategory(output, "Dark Journalist", "dark-journalist")	# √ 23
 #	loadCategory(output, "Dustin Nemos", "dustin-nemos")		# √ 23
 	loadProgramId(output, "IPOT1776", 60413)
 #	loadCategory(output, "Jordan Sather", "jordan-sather")		# 18
-	loadCategory(output, "L", "l")								# 16
+#	loadCategory(output, "L", "l")								# 16
 	loadProgramId(output, "M3thods", 59991)						# √
 #	loadProgramId(output, "Mouthy Buddha", 60411)				# √
 #	loadCategory(output, "Patel Patriot", "patel-patriot")		# 16
