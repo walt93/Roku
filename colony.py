@@ -21,6 +21,7 @@ def buildColonyDev():
 #	loadCategory(output, "Jordan Sather", "jordan-sather")		# 18
 #	loadCategory(output, "L", "l")								# 16
 	loadProgramId(output, "M3thods", 59991)						# √
+	loadProgramId(output, "Music", 61758)
 #	loadProgramId(output, "Mouthy Buddha", 60411)				# √
 #	loadCategory(output, "Patel Patriot", "patel-patriot")		# 16
 #	loadCategory(output, "Praying Medic", "praying-medic")		#
