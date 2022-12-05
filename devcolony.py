@@ -18,6 +18,7 @@ def buildColonyDev():
 #	loadCategory(output, "Dustin Nemos", "dustin-nemos")		# √ 23
 	loadProgramId(output, "IPOT1776", 60413)
 #	loadCategory(output, "Jordan Sather", "jordan-sather")		# 18
+	loadCategory(output, "Lisa Mei Crowley", "lisa-mei-crowley")				
 	loadCategory(output, "L", "l")								# 16
 	loadProgramId(output, "M3thods", 59991)						# √
 #	loadProgramId(output, "Mouthy Buddha", 60411)				# √
@@ -41,3 +42,4 @@ def buildColonyDev():
 # Do it. Build the channel.
 buildColonyDev()
 
+lisa-mei-crowley

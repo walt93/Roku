@@ -202,8 +202,8 @@ def mergeOutput(dict, output, schema, append):
 				m["longDescription"] = m["shortDescription"]	
 			output["ids"].append(m["id"])			#save id
 
-			# if duration is < 300 seconds (5minutes) then, remove the ad breaks
-			if m["content"]["duration"] <= 300:	    
+			# if duration is < 600 seconds (10minutes) then, remove the ad breaks
+			if m["content"]["duration"] <= 600:	    
 				m["content"].pop("adBreaks")		
 
 			output[schema].append(m)				#append to movies list

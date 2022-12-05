@@ -1,7 +1,7 @@
 from RokuFunctions import *
 
 def buildBurrow():
-	output = createOutput("Burrow•DEV", "conspyre.tv")
+	output = createOutput("Burrow", "conspyre.tv")
 
 	#prepareAllCategory()
 
@@ -11,8 +11,8 @@ def buildBurrow():
 	appendProgramId(output, "Featured", 61726)	#featured - tail 61726
 	
 	#DisclosureHub curated rows
-	loadProgramId(output, "DisclosureHub Films", 59975)
-	loadProgramId(output, "DisclosureHub Picks", 59976)
+	loadProgramId(output, "Disclosure Hub Hits", 59975)
+	loadProgramId(output, "Recommended For You", 59976)
 	loadProgramId(output, "Banned Pandemic Doctors", 59978)
 	loadProgramId(output, "Lost Covid Videos", 59979)
 	loadProgramId(output, "Hidden Health Wealth", 59980)	
@@ -71,7 +71,7 @@ def buildBurrow():
 	loadProgramId(output, "Music", 61758)
 	loadProgramId(output, "NASA", 60419)
 	loadProgramId(output, "ORME", 60420)
-	loadProgramId(output, "Pizzagate", 60421)h
+	loadProgramId(output, "Pizzagate", 60421)
 	loadProgramId(output, "Q", 61753)
 	loadProgramId(output, "Remote Viewing", 60905)
 	loadProgramId(output, "Schneider, Philip", 60906)
