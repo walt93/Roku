@@ -91,18 +91,18 @@ def fillTopChronological(output, maxCount):
 # name = How your category appears in Roku Direct Publisher
 # order = "chronological | most_popular | most_recent"
 # url = comes from AVideo site / category
-def loadProgramId(output, name, id):
+def loadProgramId(output, name, id, addToRecent):
 	url = output["baseUrlProgram"] + str(id)
 	print(f"loading {url}")
-	curlJsonDict(output, name, "manual", url, False)
+	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def appendProgramId(output, name, id):
 	url = output["baseUrlProgram"] + str(id)
-	curlJsonDict(output, name, "manual", url, True)
+	curlJsonDict(output, name, "manual", url, True, False)
 
-def loadCategory(output, name, category):
+def loadCategory(output, name, category, addToRecent):
 	url = output["baseUrlCategory"] + category
-	curlJsonDict(output, name, "manual", url, False)
+	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def curlJsonDict(output, name, order, url, append):
 	#Set a user agent, else 403
@@ -118,7 +118,7 @@ def curlJsonDict(output, name, order, url, append):
 	playlistName = name.lower().replace(" ", "")
 	values["categories"][0]["playlistName"] = playlistName
 	values["playlists"][0]["name"] = playlistName
-	mergeOutput(values, output, "movies", append)	#hardcode schema for now
+	mergeOutput(values, output, "movies", append, addToRecent)	#hardcode schema for now
 	count = len(values["movies"])
 	if count == 0:
 		print("***********************************************************************************")
@@ -192,7 +192,7 @@ def writeOutput(output, filename):
 ########################################################################################################################
 # Private methods
 
-def mergeOutput(dict, output, schema, append):
+def mergeOutput(dict, output, schema, append, addToRecent):
 	d1 = date.today() - timedelta(days = 45)
 	for m in dict["movies"]:						#iterate incoming movies
 		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# roku jpeg doesn't work some % of the time, but, we always seem to have a thumbnail - let's just use it
@@ -208,7 +208,7 @@ def mergeOutput(dict, output, schema, append):
 
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
-			if (makeRecent == True) and (d2.date() >= d1):
+			if (makeRecent == True) and (d2.date() >= d1) and (addToRecent == True):
 				output["recentVideos"][d2.strftime("%Y-%m-%dT%H:%M:%S")] = m["id"]
 
 	if append == True:
