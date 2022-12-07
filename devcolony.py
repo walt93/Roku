@@ -41,5 +41,3 @@ def buildColonyDev():
 
 # Do it. Build the channel.
 buildColonyDev()
-
-lisa-mei-crowley
