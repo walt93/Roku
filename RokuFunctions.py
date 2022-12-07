@@ -104,7 +104,7 @@ def loadCategory(output, name, category, addToRecent):
 	url = output["baseUrlCategory"] + category
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
-def curlJsonDict(output, name, order, url, append):
+def curlJsonDict(output, name, order, url, append, addToRecent):
 	#Set a user agent, else 403
 	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
