@@ -6,34 +6,34 @@ def buildColonyDev():
 	#prepareAllCategory()
 
 	#Featured content
-	loadProgramId(output, "Burrow: Featured", 58493)
-	loadProgramId(output, "Burrow: Just Added", 58474)
+	loadProgramId(output, "Burrow: Featured", 58493, False)
+	loadProgramId(output, "Burrow: Just Added", 58474, False)
 	reserveTopChronological(output, "Latest Podcasts")
 
 	#Alphabetical podcasters
-	loadCategory(output, "Amazing Polly", "amazing-polly")		# √ 32
-	loadProgramId(output, "BradCGZ", 62937)
-#	loadCategory(output, "Corbett Report", "corbett-report")	# √ 18
-#	loadCategory(output, "Dark Journalist", "dark-journalist")	# √ 23
-#	loadCategory(output, "Dustin Nemos", "dustin-nemos")		# √ 23
-	loadProgramId(output, "IPOT1776", 60413)
-#	loadCategory(output, "Jordan Sather", "jordan-sather")		# 18
-	loadCategory(output, "Lisa Mei Crowley", "lisa-mei-crowley")				
-	loadCategory(output, "L", "l")								# 16
-	loadProgramId(output, "M3thods", 59991)						# √
-#	loadProgramId(output, "Mouthy Buddha", 60411)				# √
-#	loadCategory(output, "Patel Patriot", "patel-patriot")		# 16
-#	loadCategory(output, "Praying Medic", "praying-medic")		#
-#	loadCategory(output, "Quite Frankly", "quite-framkly")		# 17
-#	loadCategory(output, "Really Graceful", "really-graceful")	# 26
-#	loadCategory(output, "Redpill78", "redpill78")				# 17
-#	loadCategory(output, "Robert Sepehr", "robert-sepehr")		# √
-#	loadCategory(output, "Sarah Westall", "sarah-westall")		#
-#	loadCategory(output, "SGT Report", "sgt-report")			# 20
-#	loadCategory(output, "Tore Says", "tore-says")				# 
+	loadCategory(output, "Amazing Polly", "amazing-polly", True)		# √ 32
+	loadProgramId(output, "BradCGZ", 62937, True)
+#	loadCategory(output, "Corbett Report", "corbett-report", True)	# √ 18
+#	loadCategory(output, "Dark Journalist", "dark-journalist", True)	# √ 23
+#	loadCategory(output, "Dustin Nemos", "dustin-nemos", True)		# √ 23
+	loadProgramId(output, "IPOT1776", 60413, True)
+#	loadCategory(output, "Jordan Sather", "jordan-sather", True)		# 18
+	loadCategory(output, "Lisa Mei Crowley", "lisa-mei-crowley", False)				
+	loadCategory(output, "L", "l", True)								# 16
+	loadProgramId(output, "M3thods", 59991, True)						# √
+#	loadProgramId(output, "Mouthy Buddha", 60411, True)				# √
+#	loadCategory(output, "Patel Patriot", "patel-patriot", True)		# 16
+#	loadCategory(output, "Praying Medic", "praying-medic", True)		#
+#	loadCategory(output, "Quite Frankly", "quite-framkly", True)		# 17
+#	loadCategory(output, "Really Graceful", "really-graceful", True)	# 26
+#	loadCategory(output, "Redpill78", "redpill78", True)				# 17
+#	loadCategory(output, "Robert Sepehr", "robert-sepehr", True)		# √
+#	loadCategory(output, "Sarah Westall", "sarah-westall", True)		#
+#	loadCategory(output, "SGT Report", "sgt-report", True)			# 20
+#	loadCategory(output, "Tore Says", "tore-says", True)				# 
 
-	loadProgramId(output, "Severe Anon", 103090)				# √
-	loadCategory(output, "TRUreporting", "trureporting")		# √ 18
+	loadProgramId(output, "Severe Anon", 103090, False)				# √
+	loadCategory(output, "TRUreporting", "trureporting", True)		# √ 18
 
 	#fillTopChronological(output, 100)	# up to 100 videos max
 
