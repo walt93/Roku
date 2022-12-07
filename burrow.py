@@ -38,6 +38,7 @@ def buildBurrow():
 	loadProgramId(output, "9/11", 59662)
 	loadProgramId(output, "Alt. Anthropology", 61754)
 	loadProgramId(output, "Antarctica", 60399)
+	loadProgramId(output, "Assange, Julian", 58473)
 	loadProgramId(output, "BradCGZ", 62937)
 	loadProgramId(output, "CIA", 60325)
 	loadProgramId(output, "Cooper, William", 59686)
