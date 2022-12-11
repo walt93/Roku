@@ -37,9 +37,6 @@ def buildColonyDev():
 	loadProgramId(output, "Severe Anon", 103090, False)
 	loadCategory(output, "TRUreporting", "trureporting", True)
 
-	loadProgramId(output, "Severe Anon", 103090, False)				# √
-	loadCategory(output, "TRUreporting", "trureporting", True)		# √ 18
-
 	#fillTopChronological(output, 100)	# up to 100 videos max
 
 	writeOutput(output, "/var/www/html/AVideo/rokuv2/devcolony.json")
