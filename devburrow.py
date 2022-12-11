@@ -33,9 +33,6 @@ def buildBurrow():
 	loadProgramId(output, "Conspyre.tv just added", 58474, False)
 	#appendProgramId(output, "Just Added", 75168, False)	#just added - tail
 
-	loadProgramId(output, "TRUTHISKNOWLEDGE", 106372, False)
-	loadProgramId(output, "THE EVIL WILL BE EXTINGUISHED COMPLETELY FOREVER", 52585, False)
-
 	#Alphabetical categories, documentaries, people
 	loadProgramId(output, "5G", 59660, False)
 	loadProgramId(output, "9/11", 59662, False)
@@ -80,6 +77,7 @@ def buildBurrow():
 	loadProgramId(output, "Remote Viewing", 60905, False)
 	loadProgramId(output, "Schneider, Philip", 60906, False)
 	loadProgramId(output, "Tartaria", 61755, False)
+	loadProgramId(output, "TRUTHISKNOWLEDGE", 106372, False)
 	loadProgramId(output, "Tyrrany & Eugenics (Jana Esp, False)", 61757, False)
 	loadProgramId(output, "Thunderbolts Project", 61759, False)
 	loadProgramId(output, "UFOs", 61763, False)

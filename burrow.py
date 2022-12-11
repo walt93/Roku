@@ -77,6 +77,7 @@ def buildBurrow():
 	loadProgramId(output, "Remote Viewing", 60905, False)
 	loadProgramId(output, "Schneider, Philip", 60906, False)
 	loadProgramId(output, "Tartaria", 61755, False)
+	loadProgramId(output, "TRUTHISKNOWLEDGE", 106372, False)
 	loadProgramId(output, "Tyrrany & Eugenics (Jana Esp, False)", 61757, False)
 	loadProgramId(output, "Thunderbolts Project", 61759, False)
 	loadProgramId(output, "UFOs", 61763, False)
