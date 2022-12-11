@@ -6,8 +6,8 @@ def buildColonyDev():
 	#prepareAllCategory()
 
 	#Featured content
-	loadProgramId(output, "Burrow: Featured", 58493)
-	loadProgramId(output, "Burrow: Just Added", 58474)
+	loadProgramId(output, "Burrow: Featured", 58493, False)
+	loadProgramId(output, "Burrow: Just Added", 58474, False)
 	reserveTopChronological(output, "Latest Podcasts")
 
 	#Alphabetical podcasters
