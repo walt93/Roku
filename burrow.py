@@ -3,8 +3,6 @@ from RokuFunctions import *
 def buildBurrow():
 	output = createOutput("Burrow", "conspyre.tv")
 
-	#prepareAllCategory()
-
 	#Featured content
 	loadProgramId(output, "Featured", 60320, False)	#featured - head 60320
 	appendProgramId(output, "Featured", 58493)
@@ -63,7 +61,6 @@ def buildBurrow():
 	loadProgramId(output, "JFK", 60405, False)
 	loadProgramId(output, "Lazar, Bob", 60406, False)
 	loadProgramId(output, "Lectures, Conspiracy", 74210, False)
-	loadProgramId(output, "M3thods", 59991, False)
 	loadProgramId(output, "Marrs, Jim", 60414, False)
 	loadProgramId(output, "Maxwell, Jordan", 60407, False)
 	loadProgramId(output, "Mind Control", 60416, False)
@@ -77,7 +74,6 @@ def buildBurrow():
 	loadProgramId(output, "Remote Viewing", 60905, False)
 	loadProgramId(output, "Schneider, Philip", 60906, False)
 	loadProgramId(output, "Tartaria", 61755, False)
-	loadProgramId(output, "TRUTHISKNOWLEDGE", 106372, False)
 	loadProgramId(output, "Tyrrany & Eugenics (Jana Esp, False)", 61757, False)
 	loadProgramId(output, "Thunderbolts Project", 61759, False)
 	loadProgramId(output, "UFOs", 61763, False)
