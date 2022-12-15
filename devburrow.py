@@ -3,7 +3,7 @@ from RokuFunctions import *
 def buildConspyreTV():
 	output = createOutput("Conspyre·TV", "conspyre.tv")
 
-	prepareAllCategory()
+	#prepareAllCategory()
 
 	loadCategory(output, "Featured", "58493", False)						#Featured content
 	loadCategory(output, "Just Added", "58493", False)
