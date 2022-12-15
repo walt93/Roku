@@ -8,7 +8,7 @@ def buildConspyreTV():
 	loadProgramId(output, "Featured", 58493, False)						#Featured content
 	loadProgramId(output, "Just Added", 58474, False)
 
-	reserveTopChronological(output, "Recent Tranmissions")				#Alphabetical podcasters
+	reserveTopChronological(output, "Recent Transmissions")				#Alphabetical podcasters
 	loadCategory(output,  "Big Dig Energy", "big-dig-energy", True)
 	loadCategory(output,  "Brad & Abbey Show", "brad-abbey-show", True)
 	loadProgramId(output, "BradCGZ", 62937, True)
