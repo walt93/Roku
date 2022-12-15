@@ -15,7 +15,7 @@ def buildConspyreTV():
 	loadProgramId(output, "Disclosure Hub Hits", 59975, True)
 	loadProgramId(output, "Enthéos Shines Fan Channel", 59692, False)
 	loadProgramId(output, "IPOT1776", 60413, True)
-	loadProgramId(output, "JustInformed Talk", 113460, True)
+	#loadProgramId(output, "JustInformed Talk", 113460, True)
 	loadProgramId(output, "M3thods", 59991, True)
 	loadCategory(output,  "TRUreporting", "trureporting", True)
 
