@@ -83,7 +83,7 @@ def buildConspyreTV():
 	loadProgramId(output, "Thunderbolts Project", 61759, False)
 	loadCategory(output,  "UFOs", "lectures-1", False)
 
-	writeOutput(output, "/var/www/html/AVideo/rokuv2/conspyre-tv.json")
+	writeOutput(output, "/var/www/html/AVideo/rokuv2/devburrow.json")
 
 # Do it. Build the channel.
 buildConspyreTV()
