@@ -5,11 +5,11 @@ def buildConspyreTV():
 
 	#prepareAllCategory()
 
-	loadCategory(output, "Featured", "58493", False)						#Featured content
-	loadCategory(output, "Just Added", "58493", False)
+	loadProgramId(output, "Featured", 58493, False)						#Featured content
+	loadProgramId(output, "Just Added", 58474, False)
 
 	reserveTopChronological(output, "Latest Podcasts")						#Alphabetical podcasters
-	loadCategory(output,  "Big Dig Energy", "l", True)
+	loadCategory(output,  "Big Dig Energy", "big-dig-energy", True)
 	loadCategory(output,  "Brad & Abbey Show", "brad-abbey-show", True)
 	loadProgramId(output, "BradCGZ", 62937, True)
 	loadProgramId(output, "Disclosure Hub Hits", 59975, True)
@@ -31,7 +31,7 @@ def buildConspyreTV():
 	loadProgramId(output, "Bernard, Ronald", 59685, False)
 	loadProgramId(output, "Cooper, William", 59686, False)
 	loadProgramId(output, "Cult of the Medics", 59688, False)
-	loadCategory(output,  "Dark, The", "conspyre-dark", False)
+	loadProgramId(output, "Dark, The", 60328, False)
 	loadCategory(output,  "Detox Project, The", "detox-project", False)
 	loadProgramId(output, "Disclosure Hub Hits", 59975, False)
 	#loadCategory(output,  "Disclosure Library", "disclosure-library", False)
@@ -43,7 +43,7 @@ def buildConspyreTV():
 	loadProgramId(output, "Finders, The", 59694, False)
 	loadProgramId(output, "Freemasons", 59695, False)
 	loadProgramId(output, "Gates, Bill", 59696, False)
-	loadCategory(output,  "General", "conspyre-tv", False)
+	loadProgramId(output, "General", 74211, False)
 	loadProgramId(output, "Geoengineering", 59697, False)
 	loadProgramId(output, "Giants", 59698, False)
 	loadProgramId(output, "Great Reset", 59699, False)
