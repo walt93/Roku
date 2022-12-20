@@ -15,6 +15,7 @@ maxVideos = 10000		# 1000 on Roku Direct Publisher
 makeRecent = False
 recentVideoDate = ""
 reserveIndex = -1
+fileUrls = []
 
 #
 # Usage:
@@ -187,6 +188,9 @@ def writeOutput(output, filename):
 	with open(filename, "w") as outfile:
 		outfile.write(json_object)
 
+    with open("fileurls.txt", "w" as files):
+    	files.write(fileUrls)
+	
 	print("Fin.")
 
 ########################################################################################################################
@@ -205,6 +209,8 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 			# if duration is < 600 seconds (10minutes) then, remove the ad breaks
 			if m["content"]["duration"] <= 600:	    
 				m["content"].pop("adBreaks")		
+
+			fileUrls.append(m["content"]["videos"]["url"])
 
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
