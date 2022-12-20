@@ -188,8 +188,8 @@ def writeOutput(output, filename):
 	with open(filename, "w") as outfile:
 		outfile.write(json_object)
 
-    with open("fileurls.txt", "w" as files):
-    	files.write(fileUrls)
+	with open("fileurls.txt", "w" as files):
+		files.write(fileUrls)
 	
 	print("Fin.")
 
