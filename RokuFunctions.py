@@ -16,6 +16,8 @@ makeRecent = False
 recentVideoDate = ""
 reserveIndex = -1
 fileUrls = []
+cdnBase = ""
+imgBase = ""
 
 #
 # Usage:
@@ -42,9 +44,10 @@ fileUrls = []
 # 	writeOutput(output, "conspyre-classic-conspiracy.json")
 
 # 1. Client gets an output by calling createOutput with the name of the Roku Channel
-def createOutput(providerName, baseUrl):
+def createOutput(providerName, baseUrl, cdnUrl="", imageCdnUrl=""):
 	print("Building channel " + providerName)
 	print("Creating output.")
+	cdnBase = cdnUrl
 	output = {}
 	output["providerName"] = providerName
 	output["language"] = "en"
@@ -188,8 +191,8 @@ def writeOutput(output, filename):
 	with open(filename, "w") as outfile:
 		outfile.write(json_object)
 
-	with open("fileurls.txt", "w") as files:
-		files.write(fileUrls)
+	# with open("fileurls.txt", "w") as files:
+	# 	files.write(fileUrls)
 	
 	print("Fin.")
 
@@ -210,6 +213,8 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 			if m["content"]["duration"] <= 600:	    
 				m["content"].pop("adBreaks")		
 
+			if len(cdnBase) > 0:
+				m["content"]["videos"]["url"].replace("https://s3.us-west-1.wasabisys.com/conspyre.tv/", cdnBase)
 			fileUrls.append(m["content"]["videos"]["url"])
 
 			output[schema].append(m)				#append to movies list
