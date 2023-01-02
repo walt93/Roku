@@ -227,7 +227,7 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 				if len(a) == 5:
 					del a[4]
 					m["content"]["videos"]["url"] = "/".join(a)
-			fileUrls.append(m["content"]["videos"]["url"])
+			#fileUrls.append(m["content"]["videos"]["url"])
 
 			output[schema].append(m)				#append to movies list
 			d2 = parser().parse(m["releaseDate"])
