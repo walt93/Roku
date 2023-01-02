@@ -221,12 +221,10 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 			if m["content"]["duration"] <= 600:	    
 				m["content"].pop("adBreaks")		
 
-			if len(cdnBase) > 0:
-				m["content"]["videos"]["url"].replace(cdnSrc, cdnBase)
-				a = m["content"]["videos"]["url"].split("/")
-				if len(a) == 5:
-					del a[4]
-					m["content"]["videos"]["url"] = "/".join(a)
+			m["content"]["videos"]["url"].replace(cdnSrc, cdnBase)
+			a = m["content"]["videos"]["url"].split("/")
+			del a[4]
+			m["content"]["videos"]["url"] = "/".join(a)
 			#fileUrls.append(m["content"]["videos"]["url"])
 
 			output[schema].append(m)				#append to movies list
