@@ -221,7 +221,7 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 
 			url = m["content"]["videos"][0]["url"]
 			a = url.split("/")
-			a[2] = cdnBase
+			a[2] = "burrow2.b-cdn.net"
 			del a[3]
 			url = "/".join(a)
 			m["content"]["videos"][0]["url"] = url
