@@ -17,7 +17,6 @@ recentVideoDate = ""
 reserveIndex = -1
 fileUrls = []
 cdnBase = ""
-cdnSrc = ""
 imageBase = ""
 imageSrc = ""
 
@@ -46,12 +45,11 @@ imageSrc = ""
 # 	writeOutput(output, "conspyre-classic-conspiracy.json")
 
 # 1. Client gets an output by calling createOutput with the name of the Roku Channel
-def createOutput(providerName, baseUrl, cdnSrcUrl="", cdnUrl="", imageSrcUrl="", imageCdnUrl=""):
+def createOutput(providerName, baseUrl, cdnBaseUrl="", imageSrcUrl="", imageCdnUrl=""):
 
 	print("Building channel " + providerName)
 	print("Creating output.")
-	cdnBase = cdnUrl
-	cdnSrc = cdnUrl
+	cdnBase = cdnBaseUrl
 	imageBase = imageSrcUrl
 	imageSrc = imageCdnUrl
 	output = {}

@@ -1,7 +1,7 @@
 from RokuFunctions import *
 
 def buildConspyreTV():
-	output = createOutput("Conspyre·TV", "conspyre.tv")
+	output = createOutput("Conspyre·TV", "conspyre.tv", cdnBaseUrl="burrow2.b-cdn.net", imageSrcUrl="conspyretv.cdn.ypt.me/videos", imageCdnUrl="b-img.b-cdn.net"):
 
 	#Featured content
 	loadProgramId(output, "Featured", 60320, False)	#featured - head 60320
