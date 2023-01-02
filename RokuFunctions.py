@@ -17,7 +17,9 @@ recentVideoDate = ""
 reserveIndex = -1
 fileUrls = []
 cdnBase = ""
-imgBase = ""
+cdnSrc = ""
+imageBase = ""
+imageSrc = ""
 
 #
 # Usage:
@@ -44,10 +46,14 @@ imgBase = ""
 # 	writeOutput(output, "conspyre-classic-conspiracy.json")
 
 # 1. Client gets an output by calling createOutput with the name of the Roku Channel
-def createOutput(providerName, baseUrl, cdnUrl="", imageCdnUrl=""):
+def createOutput(providerName, baseUrl, cdnSrcUrl="", cdnUrl="", imageSrcUrl="", imageCdnUrl=""):
+
 	print("Building channel " + providerName)
 	print("Creating output.")
 	cdnBase = cdnUrl
+	cdnSrc = cdnUrl
+	imageBase = imageSrcUrl
+	imageSrc = imageCdnUrl
 	output = {}
 	output["providerName"] = providerName
 	output["language"] = "en"
@@ -203,6 +209,8 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 	d1 = date.today() - timedelta(days = 45)
 	for m in dict["movies"]:						#iterate incoming movies
 		m["thumbnail"] = m["thumbnail"].replace("_roku", "")	# roku jpeg doesn't work some % of the time, but, we always seem to have a thumbnail - let's just use it
+		if len(imgBase) > 0:
+			m["content"]["videos"]["url"].replace(imgSrc, imgBase)
 		if not m["id"] in output["ids"]:			#skip if we've already processed this ID
 			if len(m["shortDescription"]) == 0:		#fix empty description
 				m["shortDescription"] = output["providerName"] + ": " + dict["categories"][0]["name"]
@@ -214,7 +222,11 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 				m["content"].pop("adBreaks")		
 
 			if len(cdnBase) > 0:
-				m["content"]["videos"]["url"].replace("https://s3.us-west-1.wasabisys.com/conspyre.tv/", cdnBase)
+				m["content"]["videos"]["url"].replace(cdnSrc, cdnBase)
+				a = m["content"]["videos"]["url"].split("/")
+				if len(a) == 5:
+					del a[4]
+					m["content"]["videos"]["url"] = "/".join(a)
 			fileUrls.append(m["content"]["videos"]["url"])
 
 			output[schema].append(m)				#append to movies list
