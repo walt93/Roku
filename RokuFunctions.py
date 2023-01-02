@@ -226,7 +226,7 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 			a[2] = cdnBase
 			del a[3]
 			url = "/".join(a)
-			m["content"]["videos"]["url"] = url
+			m["content"]["videos"][0]["url"] = url
 			#fileUrls.append(m["content"]["videos"]["url"])
 
 			output[schema].append(m)				#append to movies list
