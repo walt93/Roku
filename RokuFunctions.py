@@ -221,9 +221,7 @@ def mergeOutput(dict, output, schema, append, addToRecent):
 			if m["content"]["duration"] <= 600:	    
 				m["content"].pop("adBreaks")		
 
-			x = m["content"]["videos"]
-			print(x)
-			url = m["content"]["videos"]["url"]
+			url = m["content"]["videos"][0]["url"]
 			a = url.split("/")
 			a[2] = cdnBase
 			del a[3]
