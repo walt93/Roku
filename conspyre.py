@@ -20,71 +20,72 @@ def buildConspyreTV():
 	loadCategory(output,  "TRUreporting", "trureporting", True)
 
 	loadProgramId(output, "Music", 61758, False)							#Music
-	loadCategory(output,  "Lisa Mei Crowley", "lisa-mei-crowley", False)								
+	loadCategory(output,  "Lisa Mei Crowley", "lisa-mei-crowley", False)
 	loadProgramId(output, "Severe Anon", 103090, False)
 
 	#Alphabetical categories
-	loadProgramId(output, "5G", 59660, False)								#SHARED
-	loadProgramId(output, "9/11", 59662, False)								#SHARED
+	loadProgramId(output, "5G", 59660, False)						#SHARED
+	loadProgramId(output, "9/11", 59662, False)						#SHARED
 	loadProgramId(output, "Adair, David", 60321, False)
 	loadProgramId(output, "Alt. Anthropology", 61754, False)				#SHARED
 	loadProgramId(output, "Assange, Julian", 58473, False)					#SHARED
 	loadProgramId(output, "Bernard, Ronald", 59685, False)
-	loadProgramId(output, "CIA", 60325, False)								#SHARED
+	loadProgramId(output, "CIA", 60325, False)						#SHARED
 	loadProgramId(output, "Cooper, William", 59686, False)					#SHARED
 	loadProgramId(output, "Cult of the Medics", 59688, False)				#SHARED
-	loadProgramId(output, "Dark, The", 60328, False)						#SHARED
+	loadProgramId(output, "Dark, The", 60328, False)					#SHARED
 	loadCategory(output,  "Detox Project, The", "detox-project", False)
 	loadProgramId(output, "Disclosure Hub Hits", 59975, False)				#SHARED
-	#loadCategory(output,  "Disclosure Library", "disclosure-library", False)
+	loadCategory(output,  "Disclosure Library", "disclosure-library", False)
 	loadProgramId(output, "Disney", 59689, False)
 	loadProgramId(output, "Dysfunction, Election", 114334, False)
 	loadCategory(output,  "Egypt", "egypt", False)
 	loadProgramId(output, "Epstein, Jeffrey", 59693, False)					#SHARED
-	loadCategory(output,  "Fall of the Cabal", "fall-of-the-cabal", False)	#SHARED
-	loadProgramId(output, "Finders, The", 59694, False)						#SHARED
-	loadProgramId(output, "Freemasons", 59695, False)						#SHARED
+	loadCategory(output,  "Fall of the Cabal", "fall-of-the-cabal", False)			#SHARED
+	loadProgramId(output, "Finders, The", 59694, False)					#SHARED
+	loadProgramId(output, "Freemasons", 59695, False)					#SHARED
 	loadProgramId(output, "Gates, Bill", 59696, False)
-	loadProgramId(output, "General", 74211, False)							#SHARED
+	loadProgramId(output, "General", 74211, False)						#SHARED
 	loadProgramId(output, "Geoengineering", 59697, False)					#SHARED
-	loadProgramId(output, "Giants", 59698, False)							#SHARED
-	loadProgramId(output, "Great Reset", 59699, False)						#SHARED
+	loadProgramId(output, "Giants", 59698, False)						#SHARED
+	loadProgramId(output, "Great Reset", 59699, False)					#SHARED
 	loadProgramId(output, "Gunderson, Ted", 59835, False)					#SHARED
 	loadCategory(output,  "Healing from GMOs", "healing-from-gmos", False)
 	loadProgramId(output, "Health, General", 59700, False)					#SHARED
 	loadCategory(output,  "Illuminati",  "illuminati", False)
-	loadProgramId(output, "ITNJ Judicial Commission", 60403, False)			#SHARED
+	loadProgramId(output, "ITNJ Judicial Commission", 60403, False)				#SHARED
 	loadCategory(output,  "Jacob, Frank", "frank-jacob", False)
-	loadCategory(output,  "JFK", "jfk", False)								#SHARED
+	loadCategory(output,  "JFK", "jfk", False)						#SHARED
 	loadCategory(output,  "Lazar, Bob", "bob-lazar", False)					#SHARED
 	loadCategory(output,  "Marrs, Jim", "jim-marrs", False)					#SHARED
-	loadCategory(output,  "Maxwell, Jordan", "jordan-maxwell", False)		#SHARED
+	loadCategory(output,  "Maxwell, Jordan", "jordan-maxwell", False)			#SHARED
 	loadCategory(output,  "Megaliths", "megalithic-sites", False)
 	loadCategory(output,  "Meyer, Stanley", "stanley-meyer", False)
-	loadProgramId(output, "Mind Control", 60416, False)						#SHARED
+	loadProgramId(output, "Mind Control", 60416, False)					#SHARED
 	loadProgramId(output, "Mouthy Buddha", 60411, False)					#SHARED
-	loadProgramId(output, "MrTruthBomb", 69786, False)						#SHARED
+	loadProgramId(output, "MrTruthBomb", 69786, False)					#SHARED
 	loadCategory(output,  "Mystery Babylon Radio", "mystery-babylon-radio-archive", False)
-	loadProgramId(output, "NASA", 60419, False)								#SHARED
-	loadProgramId(output, "ORME", 60420, False)								#SHARED
+	loadProgramId(output, "NASA", 60419, False)						#SHARED
+	loadProgramId(output, "ORME", 60420, False)						#SHARED
 	loadCategory(output,  "Pizzagate", "pizzagate", False)
 	loadCategory(output,  "Project Camelot", "project-camelot", False)
-	loadProgramId(output, "Pizzagate", 60421, False)						#SHARED
+	loadProgramId(output, "Pizzagate", 60421, False)					#SHARED
 	loadProgramId(output, "Remote Viewing", 60905, False)					#SHARED
 	loadProgramId(output, "Schneider, Philip", 60906, False)				#SHARED
 	loadProgramId(output, "Shackleford, Rusty (Pedo Island drone footage)", 61761, False)	#SHARED
 	loadCategory(output,  "Springmeier, Fritz", "fritz-springmeier", False)
 	loadCategory(output,  "SRA", "sra", False)
-	loadProgramId(output, "Tartaria", 61755, False)							#SHARED
+	loadProgramId(output, "Tartaria", 61755, False)						#SHARED
 	loadCategory(output,  "Tellinger, Michael", "michael-tellinger", False)
 	loadCategory(output,  "Tesla, Nikola", "nikola-tesla", False)
 	loadCategory(output,  "Truth About Cancer, the", "the-truth-about-cancer" , False)
 	loadProgramId(output, "TRUTHISKNOWLEDGE", 106372, False)
-	loadProgramId(output, "Tyrrany & Eugenics (Jana Esp)", 61757, False)	#SHARED
+	loadProgramId(output, "Tyrrany & Eugenics (Jana Esp)", 61757, False)			#SHARED
 	loadProgramId(output, "Thunderbolts Project", 61759, False)				#SHARED
-	loadProgramId(output, "UFOs", 61763, False)								#SHARED
+	loadProgramId(output, "UFOs", 61763, False)						#SHARED
 
-	writeOutput(output, "/var/www/html/AVideo/rokuv2/conspyre-tv.json")
+	# pepe is dead. but a vhost remains. long live pepe.
+	writeOutput(output, "/var/www/html/pepe.conspyre.tv/rokuv2/conspyre-tv.json")
 
 # Do it. Build the channel.
 buildConspyreTV()
