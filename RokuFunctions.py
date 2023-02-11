@@ -45,7 +45,7 @@ imageSrc = ""
 # 	writeOutput(output, "conspyre-classic-conspiracy.json")
 
 # 1. Client gets an output by calling createOutput with the name of the Roku Channel
-def createOutput(providerName, baseUrl, cdnBaseUrl="", imageSrcUrl="", imageCdnUrl=""):
+def createOutput(providerName, baseUrl, baseUrlB, cdnBaseUrl="", imageSrcUrl="", imageCdnUrl=""):
 
 	print("Building channel " + providerName)
 	print("Creating output.")
@@ -67,6 +67,8 @@ def createOutput(providerName, baseUrl, cdnBaseUrl="", imageSrcUrl="", imageCdnU
 	output["recentVideos"] = {}
 	output["baseUrlProgram"] = "https://" + baseUrl + "/roku.json?program_id="
 	output["baseUrlCategory"] = "https://" + baseUrl + "/roku.json?catName="
+	output["baseUrlProgramB"] = "https://" + baseUrlB + "/roku.json?program_id="
+	output["baseUrlCategoryB"] = "https://" + baseUrlB + "/roku.json?catName="
 	return output
 
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
@@ -104,12 +106,21 @@ def loadProgramId(output, name, id, addToRecent):
 	print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
+def loadProgramIdB(output, name, id, addToRecent):
+	url = output["baseUrlProgramB"] + str(id)
+	print(f"loading {url}")
+	curlJsonDict(output, name, "manual", url, False, addToRecent)
+
 def appendProgramId(output, name, id):
 	url = output["baseUrlProgram"] + str(id)
 	curlJsonDict(output, name, "manual", url, True, False)
 
 def loadCategory(output, name, category, addToRecent):
 	url = output["baseUrlCategory"] + category
+	curlJsonDict(output, name, "manual", url, False, addToRecent)
+
+def loadCategoryB(output, name, category, addToRecent):
+	url = output["baseUrlCategoryB"] + category
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def curlJsonDict(output, name, order, url, append, addToRecent):
@@ -144,7 +155,9 @@ def curlJsonDict(output, name, order, url, append, addToRecent):
 def writeOutput(output, filename):
 	output["ids"] = None				# don't publish our temporary variables
 	output["baseUrlProgram"] = None
+	output["baseUrlProgramB"] = None
 	output["baseUrlCategory"] = None
+	output["baseUrlCategoryB"] = None
 
 	if makeRecent == True:
 		keys = sorted(output["recentVideos"].keys())

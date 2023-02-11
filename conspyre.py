@@ -1,7 +1,7 @@
 from RokuFunctions import *
 
 def buildConspyreTV():
-	output = createOutput("Conspyre·TV", "conspyre.tv")
+	output = createOutput("Conspyre·TV", "conspyre.tv", "news.conspyre.tv")
 
 	#prepareAllCategory()
 
@@ -9,15 +9,15 @@ def buildConspyreTV():
 	loadProgramId(output, "Just Added", 58474, False)
 
 	reserveTopChronological(output, "Recent Transmissions")				#Alphabetical podcasters
-	loadCategory(output,  "Big Dig Energy", "big-dig-energy", True)
-	loadCategory(output,  "Brad & Abbey Show", "brad-abbey-show", True)
-	loadProgramId(output, "BradCGZ", 62937, True)
-	loadProgramId(output, "Disclosure Hub Hits", 59975, True)
-	loadProgramId(output, "Enthéos Shines Fan Channel", 59692, False)
-	loadProgramId(output, "IPOT1776", 60413, True)
-	#loadProgramId(output, "JustInformed Talk", 113460, True)
-	loadProgramId(output, "M3thods", 59991, True)
-	loadCategory(output,  "TRUreporting", "trureporting", True)
+	loadCategoryB(output, "Big Dig Energy", "big-dig-energy", True)
+	loadCategoryB(output, "Brad & Abbey Show", "brad-abbey-show", True)
+	loadCategory(output,  "Disclosure Hub Hits", "disclosure-hub-hits", True)
+	loadCategoryB(output, "Logical Brad TV", "logical-brad-tv", True)
+	loadCategory(output,  "Enthéos Shines Fan Channel", 59692, False)
+	loadCategory(output,  "IPOT1776", 60413, True)
+	loadCategoryB(output, "JustInformed Talk", "justinformed-talk", True)
+	loadCategory(output,  "M3thods", 59991, True)
+	loadCategoryB(output,  "TRUreporting", "trureporting", True)
 
 	loadProgramId(output, "Music", 61758, False)							#Music
 	loadCategory(output,  "Lisa Mei Crowley", "lisa-mei-crowley", False)
