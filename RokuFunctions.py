@@ -109,13 +109,13 @@ def fillTopChronological(output, maxCount):
 def loadProgramId(output, name, id, addToRecent):
 	global baseUrlProgram
 	url = baseUrlProgram + str(id)
-	print(f"loading {url}")
+	#print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def loadProgramIdB(output, name, id, addToRecent):
 	global baseUrlProgramB
 	url = baseUrlProgramB + str(id)
-	print(f"loading {url}")
+	#print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def appendProgramId(output, name, id):
