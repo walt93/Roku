@@ -51,7 +51,7 @@ baseUrlCategoryB = ""
 
 # 1. Client gets an output by calling createOutput with the name of the Roku Channel
 def createOutput(providerName, baseUrl, baseUrlB, cdnBaseUrl="", imageSrcUrl="", imageCdnUrl=""):
-
+	global baseUrlProgram, baseUrlCategory, baseUrlProgramB, baseUrlCategoryB
 	print("Building channel " + providerName)
 	print("Creating output.")
 	cdnBase = cdnBaseUrl
