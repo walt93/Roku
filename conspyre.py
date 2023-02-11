@@ -13,7 +13,7 @@ def buildConspyreTV():
 	loadCategoryB(output, "Brad & Abbey Show", "brad-abbey-show", True)
 	loadCategory(output,  "Disclosure Hub Hits", "disclosure-hub-hits", True)
 	loadCategoryB(output, "Logical Brad TV", "logical-brad-tv", True)
-	loadCategory(output,  "Enthéos Shines Fan Channel", "enthéos-shines-fan-channel", False)
+	loadCategory(output,  "Enthéos Shines Fan Channel", "entheos-shines-fan-channel", False)
 	loadCategory(output,  "IPOT1776", "ipot1776", True)
 	loadCategoryB(output, "JustInformed Talk", "justinformed-talk", True)
 	loadCategory(output,  "M3thods", "m3thods", True)
