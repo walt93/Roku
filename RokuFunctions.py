@@ -135,7 +135,6 @@ def loadCategoryB(output, name, category, addToRecent):
 
 def curlJsonDict(output, name, order, url, append, addToRecent):
 	#Set a user agent, else 403
-	print(f'url={url}')
 	r = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
 	response = urlopen(r).read()
