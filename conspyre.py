@@ -9,14 +9,20 @@ def buildConspyreTV():
 	loadProgramId(output, "Just Added", 58474, False)
 
 	reserveTopChronological(output, "Recent Transmissions")				#Alphabetical podcasters
+	loadCategoryB(output, "Altered State", "altered-state", True)
+	loadCategoryB(output, "Amazing Polly", "amazing-polly", True)
 	loadCategoryB(output, "Big Dig Energy", "big-dig-energy", True)
 	loadCategoryB(output, "Brad & Abbey Show", "brad-abbey-show", True)
+	loadCategoryB(output, "Craig Mason's Reasonable TV", "craig-mason-s-reasonable-tv", True)
 	loadCategory(output,  "Disclosure Hub Hits", "disclosure-hub-hits", True)
-	loadCategoryB(output, "Logical Brad TV", "logical-brad-tv", True)
 	loadCategory(output,  "Enthéos Shines Fan Channel", "entheos-shines-fan-channel", False)
-	loadCategory(output,  "IPOT1776", "ipot1776", True)
+	loadCategoryB(output, "Jordan Sather", "jordan-sather", True)
 	loadCategoryB(output, "JustInformed Talk", "justinformed-talk", True)
+	loadCategoryB(output, "Logical Brad TV", "logical-brad-tv", True)
 	loadCategory(output,  "M3thods", "m3thods", True)
+	loadCategoryB(output, "Nemos News Network", "nemos-news-network", True)
+	loadCategoryB(output, "SGT Report", "sgtreport", True)
+	loadCategoryB(output, "Tore Says", "tore-says", True)
 	loadCategoryB(output,  "TRUreporting", "trureporting", True)
 
 	loadProgramId(output, "Music", 61758, False)							#Music
@@ -53,6 +59,7 @@ def buildConspyreTV():
 	loadCategory(output,  "Healing from GMOs", "healing-from-gmos", False)
 	loadProgramId(output, "Health, General", 59700, False)					#SHARED
 	loadCategory(output,  "Illuminati",  "illuminati", False)
+	loadCategory(output,  "IPOT1776", "ipot1776", True)
 	loadProgramId(output, "ITNJ Judicial Commission", 60403, False)				#SHARED
 	loadCategory(output,  "Jacob, Frank", "frank-jacob", False)
 	loadCategory(output,  "JFK", "jfk", False)						#SHARED
