@@ -107,24 +107,29 @@ def fillTopChronological(output, maxCount):
 # order = "chronological | most_popular | most_recent"
 # url = comes from AVideo site / category
 def loadProgramId(output, name, id, addToRecent):
+	global baseUrlProgram
 	url = baseUrlProgram + str(id)
 	print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def loadProgramIdB(output, name, id, addToRecent):
+	global baseUrlProgramB
 	url = baseUrlProgramB + str(id)
 	print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def appendProgramId(output, name, id):
+	global baseUrlProgram
 	url = baseUrlProgram + str(id)
 	curlJsonDict(output, name, "manual", url, True, False)
 
 def loadCategory(output, name, category, addToRecent):
+	global baseUrlCategory
 	url = baseUrlCategory + category
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def loadCategoryB(output, name, category, addToRecent):
+	global baseUrlCategoryB
 	url = baseUrlCategoryB + category
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
