@@ -20,6 +20,11 @@ cdnBase = ""
 imageBase = ""
 imageSrc = ""
 
+baseUrlProgram = ""
+baseUrlCategory = ""
+baseUrlProgramB = ""
+baseUrlCategoryB = ""
+
 #
 # Usage:
 #
@@ -65,10 +70,10 @@ def createOutput(providerName, baseUrl, baseUrlB, cdnBaseUrl="", imageSrcUrl="",
 	output["tvSpecials"] = []
 	output["ids"] = []
 	output["recentVideos"] = {}
-	output["baseUrlProgram"] = "https://" + baseUrl + "/roku.json?program_id="
-	output["baseUrlCategory"] = "https://" + baseUrl + "/roku.json?catName="
-	output["baseUrlProgramB"] = "https://" + baseUrlB + "/roku.json?program_id="
-	output["baseUrlCategoryB"] = "https://" + baseUrlB + "/roku.json?catName="
+	baseUrlProgram = "https://" + baseUrl + "/roku.json?program_id="
+	baseUrlCategory = "https://" + baseUrl + "/roku.json?catName="
+	baseUrlProgramB = "https://" + baseUrlB + "/roku.json?program_id="
+	baseUrlCategoryB = "https://" + baseUrlB + "/roku.json?catName="
 	return output
 
 # 1.5 client calls reserveTopChronological to reserve a slot for most recent videos}
@@ -102,25 +107,25 @@ def fillTopChronological(output, maxCount):
 # order = "chronological | most_popular | most_recent"
 # url = comes from AVideo site / category
 def loadProgramId(output, name, id, addToRecent):
-	url = output["baseUrlProgram"] + str(id)
+	url = baseUrlProgram + str(id)
 	print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def loadProgramIdB(output, name, id, addToRecent):
-	url = output["baseUrlProgramB"] + str(id)
+	url = baseUrlProgramB + str(id)
 	print(f"loading {url}")
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def appendProgramId(output, name, id):
-	url = output["baseUrlProgram"] + str(id)
+	url = baseUrlProgram + str(id)
 	curlJsonDict(output, name, "manual", url, True, False)
 
 def loadCategory(output, name, category, addToRecent):
-	url = output["baseUrlCategory"] + category
+	url = baseUrlCategory + category
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def loadCategoryB(output, name, category, addToRecent):
-	url = output["baseUrlCategoryB"] + category
+	url = baseUrlCategoryB + category
 	curlJsonDict(output, name, "manual", url, False, addToRecent)
 
 def curlJsonDict(output, name, order, url, append, addToRecent):
@@ -154,10 +159,6 @@ def curlJsonDict(output, name, order, url, append, addToRecent):
 # 3. Client calls writeOutput to emit the merged Roku JSON file
 def writeOutput(output, filename):
 	output["ids"] = None				# don't publish our temporary variables
-	output["baseUrlProgram"] = None
-	output["baseUrlProgramB"] = None
-	output["baseUrlCategory"] = None
-	output["baseUrlCategoryB"] = None
 
 	if makeRecent == True:
 		keys = sorted(output["recentVideos"].keys())
