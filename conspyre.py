@@ -1,4 +1,7 @@
 from RokuFunctions import *
+import requests
+from sh import rclone
+import sys
 
 def buildConspyreTV():
 	output = createOutput("Conspyre·TV", "conspyre.tv", "news.conspyre.tv")
@@ -92,7 +95,18 @@ def buildConspyreTV():
 	loadProgramId(output, "UFOs", 61763, False)						#SHARED
 
 	# pepe is dead. but a vhost remains. long live pepe.
-	writeOutput(output, "/var/www/html/pepe.conspyre.tv/rokuv2/conspyre-tv.json")
+	writeOutput(output, "/tmp/conspyre-tv.json")
+
+	return
+	rclone("copy", "/tmp/conspyre-tv.json", "b-json:conspyre-tv.json", "--multi-thread-streams 0")
+
+	url = "https://api.bunny.net/purge?url=https%3A%2F%2Fb-json.b-cdn.net%2Fconspyre-tv.json&async=true"
+	headers = {"AccessKey": "f7af3654-961e-427b-a337-d39dad813f1b"}
+	response = requests.post(url, headers=headers)
+
+	print("Status Code:", response.status_code)
+	print("Headers:", response.headers)
+	print("Response Body:", response.content)
 
 # Do it. Build the channel.
 buildConspyreTV()
